@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://zhuwei12.github.io">
   <title>react小书学习（Props） | 朱蔚的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在使用一个组件的时候，可以把参数放在标签的属性当中，所有的属性都会作为 props 对象的键值">
+  <meta name="description" content="在使用一个组件的时候，可以把参数放在标签的属性当中，所有的属性都会作为 props 对象的键值,可以通过props父子组件之间互相传参。">
 <meta name="keywords" content="react学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="react小书学习（Props）">
 <meta property="og:url" content="http://zhuwei12.github.io/2018/10/10/act小书学习（Props）/index.html">
 <meta property="og:site_name" content="朱蔚的博客">
-<meta property="og:description" content="在使用一个组件的时候，可以把参数放在标签的属性当中，所有的属性都会作为 props 对象的键值">
+<meta property="og:description" content="在使用一个组件的时候，可以把参数放在标签的属性当中，所有的属性都会作为 props 对象的键值,可以通过props父子组件之间互相传参。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-14T08:59:24.455Z">
+<meta property="og:updated_time" content="2018-10-18T08:50:33.319Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react小书学习（Props）">
-<meta name="twitter:description" content="在使用一个组件的时候，可以把参数放在标签的属性当中，所有的属性都会作为 props 对象的键值">
+<meta name="twitter:description" content="在使用一个组件的时候，可以把参数放在标签的属性当中，所有的属性都会作为 props 对象的键值,可以通过props父子组件之间互相传参。">
   
     <link rel="alternative" href="/atom.xml" title="朱蔚的博客" type="application/atom+xml">
   
@@ -159,9 +159,33 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在使用一个组件的时候，可以把参数放在标签的属性当中，所有的属性都会作为 props 对象的键值</p>
+        <p>在使用一个组件的时候，可以把参数放在标签的属性当中，所有的属性都会作为 props 对象的键值,可以通过props父子组件之间互相传参。</p>
 <a id="more"></a>
-<p>那么怎么把 props 传进去呢？在使用一个组件的时候，可以把参数放在标签的属性当中，所有的属性都会作为 props 对象的键值：</p>
+<p>重点讲一下子组件如何向父组件传参吧</p>
+<p>子组件通过this.props.method方法通过参数可以把要传递的数据传过去，如下</p>
+<pre><code>父组件：
+
+    onSubmit(v){
+        console.log(v)
+    }
+
+    render(){       //render方法用来输出dom
+        return (
+            &lt;div className=&apos;App&apos;&gt;
+                &lt;CommentInput onSubmit={this.onSubmit.bind(this)}/&gt;
+                &lt;CommentList /&gt;
+            &lt;/div&gt;
+            )
+
+    }
+
+
+子组件：
+handleSubmit(e){
+    e.preventDefault();
+    this.props.onSubmit(this.state.name)
+}
+</code></pre><p>在使用一个组件的时候，可以把参数放在标签的属性当中，所有的属性都会作为 props 对象的键值：</p>
 <pre><code>class Index extends Component {
   render () {
     return (
@@ -531,6 +555,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数据结构与算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">react项目</a>
               </li>
             
             <div class="clearfix"></div>

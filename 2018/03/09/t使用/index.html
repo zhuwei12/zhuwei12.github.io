@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://zhuwei12.github.io">
   <title>git使用 | 朱蔚的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="git clone ：将github上的代码clone到本地 git status：仓库当前状态（是否还有未提交的代码） git add .：将文件添加到仓库。 git commit -am ‘提交的说明’：将文件提交到仓库 git push：将本地的资源上传">
+  <meta name="description" content="git clone ：将github上的代码clone到本地 1.git clone 不指定分支   git clone  http://10.1.1.11/service/tmall-service.git  2.git clone 指定分支   git clone -b dev_jk http://10.1.1.11/service/tmall-service.git 命令中：多了一个  -b">
 <meta name="keywords" content="工具">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git使用">
 <meta property="og:url" content="http://zhuwei12.github.io/2018/03/09/t使用/index.html">
 <meta property="og:site_name" content="朱蔚的博客">
-<meta property="og:description" content="git clone ：将github上的代码clone到本地 git status：仓库当前状态（是否还有未提交的代码） git add .：将文件添加到仓库。 git commit -am ‘提交的说明’：将文件提交到仓库 git push：将本地的资源上传">
+<meta property="og:description" content="git clone ：将github上的代码clone到本地 1.git clone 不指定分支   git clone  http://10.1.1.11/service/tmall-service.git  2.git clone 指定分支   git clone -b dev_jk http://10.1.1.11/service/tmall-service.git 命令中：多了一个  -b">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-13T08:26:42.719Z">
+<meta property="og:updated_time" content="2018-10-19T12:28:34.115Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git使用">
-<meta name="twitter:description" content="git clone ：将github上的代码clone到本地 git status：仓库当前状态（是否还有未提交的代码） git add .：将文件添加到仓库。 git commit -am ‘提交的说明’：将文件提交到仓库 git push：将本地的资源上传">
+<meta name="twitter:description" content="git clone ：将github上的代码clone到本地 1.git clone 不指定分支   git clone  http://10.1.1.11/service/tmall-service.git  2.git clone 指定分支   git clone -b dev_jk http://10.1.1.11/service/tmall-service.git 命令中：多了一个  -b">
   
     <link rel="alternative" href="/atom.xml" title="朱蔚的博客" type="application/atom+xml">
   
@@ -160,7 +160,17 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>git clone ：将github上的代码clone到本地</p>
-<p>git status：仓库当前状态（是否还有未提交的代码）</p>
+<pre><code>1.git clone 不指定分支
+
+ git clone  http://10.1.1.11/service/tmall-service.git
+
+2.git clone 指定分支
+
+ git clone -b dev_jk http://10.1.1.11/service/tmall-service.git
+命令中：多了一个  -b dev-jk,这个dev_jk就是分支，http://10.1.1.11/service/tmall
+-service.git为源码的仓库地址
+--------------------- 
+</code></pre><p>git status：仓库当前状态（是否还有未提交的代码）</p>
 <p>git add .：将文件添加到仓库。</p>
 <p>git commit -am ‘提交的说明’：将文件提交到仓库</p>
 <p>git push：将本地的资源上传</p>
@@ -174,6 +184,7 @@
 <p> git push origin tag—dev-initial是给远程仓库提交标签。</p>
 <p> 一般git pull origin 分支名+git add .+git commit -am ‘说明’+git push origin 分支名即可</p>
 <p> git pull是将远程分支与本地分支合并，git push是将本地更新的上传</p>
+<p> git push -f origin master(分支名) 如果想覆盖远程仓库中的东西使用这个</p>
 
       
 
@@ -516,6 +527,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数据结构与算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">react项目</a>
               </li>
             
             <div class="clearfix"></div>

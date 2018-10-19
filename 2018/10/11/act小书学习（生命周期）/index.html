@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="朱蔚的博客">
 <meta property="og:description" content="简单看一下react的生命周期。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-14T09:01:13.573Z">
+<meta property="og:updated_time" content="2018-10-17T04:27:01.851Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react小书学习（生命周期）">
 <meta name="twitter:description" content="简单看一下react的生命周期。">
@@ -161,6 +161,34 @@
       
         <p>简单看一下react的生命周期。</p>
 <a id="more"></a>
+<p>getInitialState</p>
+<p>初始化组件 state 数据，但是在 es6 的语法中，我们可以使用以下书写方式代替</p>
+<pre><code>class Hello extends React.Component {
+    constructor(props, context) {
+        super(props, context);
+        // 初始化组件 state 数据
+        this.state = {
+            now: Date.now()
+        }
+    }
+}
+</code></pre><p>render</p>
+<p>最常用的hook，返回组件要渲染的模板。</p>
+<p>comopentDidMount</p>
+<p>组件第一次加载时渲染完成的事件，一般在此获取网络数据。实际开始项目开发时，会经常用到。（一开始先加载loading，然后等数据请求完了setState来更新）</p>
+<p>shouldComponentUpdate</p>
+<p>主要用于性能优化，建议每个组件都加上pureRender这个优化防止不必要的更新（props和state不变的话就不需要刷新，默认情况下会有不必要的刷新），使用方法为：</p>
+<pre><code>import pureRender from &apos;pure-render-decorator&apos;
+@pureRender
+class Page extends Component {...}
+
+  直接装饰器写法，在每个class前面加@pureRender 
+相当于给class里的生命周期加了个方法
+this.shouldComponentUpdate()=pureRender.shouldComponentUpdate() 
+</code></pre><p>componentDidUpdate</p>
+<p>组件更新了之后触发的事件，一般用于清空并更新数据。实际开始项目开发时，会经常用到。</p>
+<p>componentWillUnmount</p>
+<p>组件在销毁之前触发的事件，一般用户存储一些特殊信息，以及清理setTimeout事件等。</p>
 <p>调用顺序及次数</p>
 <p>getDefaultProps()，调用1次</p>
 <p>getInitialState()，调用1次</p>
@@ -515,6 +543,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数据结构与算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">react项目</a>
               </li>
             
             <div class="clearfix"></div>

@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="朱蔚的博客">
 <meta property="og:description" content="高阶组件是一个函数，传给它一个组件，返回一个新的组件。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-14T09:00:12.965Z">
+<meta property="og:updated_time" content="2018-10-17T13:16:16.429Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react小书学习（高阶组件）">
 <meta name="twitter:description" content="高阶组件是一个函数，传给它一个组件，返回一个新的组件。">
@@ -178,7 +178,7 @@ export default (WrappedComponent, name) =&gt; {
     }
 
     render () {
-      return &lt;WrappedComponent data={this.state.data} /&gt;
+      return &lt;WrappedComponent data={this.state.data} {...this.props}/&gt;
     }
   }
   return NewComponent
@@ -186,13 +186,24 @@ export default (WrappedComponent, name) =&gt; {
 </code></pre><p> 组件：</p>
 <pre><code>class InputWithUserName extends Component {
   render () {
-    return &lt;input value={this.props.data} /&gt;
+    return &lt;input name=&apos;name&apos; value={this.props.data} /&gt;  //可以使用props得到高阶组件中的属性，高阶组件里也可以使用this.props得到这个组件中的props
+
   }
 }
 </code></pre><p>使用高阶组件</p>
 <pre><code>InputWithUserName = wrapWithLoadData(InputWithUserName, &apos;username&apos;)
-export default InputWithUserName    
-</code></pre>
+export default InputWithUserName
+</code></pre><p>关于高阶组件的应用主要分为两大类，代理方式和继承方式。</p>
+<p><strong>代理方式：</strong></p>
+<p>操纵prop</p>
+<p>访问ref（不推荐）</p>
+<p>抽取状态</p>
+<p>包装组件</p>
+<p><strong>继承方式：</strong></p>
+<p>操纵生命周期</p>
+<p>操纵prop</p>
+<p><a href="https://mp.weixin.qq.com/s/_zQZ4Gg9WIG-3byL_p13QA" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/_zQZ4Gg9WIG-3byL_p13QA</a></p>
+
       
 
       
@@ -534,6 +545,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数据结构与算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">react项目</a>
               </li>
             
             <div class="clearfix"></div>
