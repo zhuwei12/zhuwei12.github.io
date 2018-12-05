@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://zhuwei12.github.io/img/mysql.jpeg">
 <meta property="og:image" content="http://zhuwei12.github.io/img/sequelpro.jpeg">
 <meta property="og:image" content="http://zhuwei12.github.io/img/redis.jpeg">
-<meta property="og:updated_time" content="2018-12-05T09:12:12.755Z">
+<meta property="og:updated_time" content="2018-12-05T10:36:13.366Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="rap2搭建踩坑">
 <meta name="twitter:description" content="rap2是一个开源接口管理工具，比较方便接口调试，不过搭建比较麻烦，需要后端数据库的一些知识。">
@@ -201,7 +201,7 @@ FLUSH PRIVILEGES;//刷新一下
 </code></pre><p>然后进入delos项目，将src/config/config.dev.ts下</p>
 <pre><code>db: {   # 下面是mysql的配置
     dialect: &apos;mysql&apos;,
-    host: &apos;192.168.9.80&apos;,
+    host: &apos;localhost&apos;,
     port: 3306,
     username: &apos;root&apos;,
     password: &apos;123456789&apos;,
