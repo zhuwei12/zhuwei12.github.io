@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://zhuwei12.github.io/img/mysql.jpeg">
 <meta property="og:image" content="http://zhuwei12.github.io/img/sequelpro.jpeg">
 <meta property="og:image" content="http://zhuwei12.github.io/img/redis.jpeg">
-<meta property="og:updated_time" content="2018-12-05T10:36:13.366Z">
+<meta property="og:updated_time" content="2018-12-21T13:41:35.335Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="rap2搭建踩坑">
 <meta name="twitter:description" content="rap2是一个开源接口管理工具，比较方便接口调试，不过搭建比较麻烦，需要后端数据库的一些知识。">
@@ -256,7 +256,32 @@ pm2 serve ./build 8082 --name rap2-dolores --watch
 <pre><code>npm run clean
 NODE_ENV=production node dist/dispatch.js
 </code></pre><p>我这边会遇到一个问题是提示我rap数据库找不到，但是应该使用的是RAP2_DELOS_APP_LOCAL这个数据库，不知道哪里出了问题，解决方案是将RAP2_DELOS_APP_LOCAL这个数据库复制了一份到新建的rap数据库，即可正常使用。</p>
-
+<p>问题二：连接不上数据库，解决方案是在数据库配置文件（/etc/my.cnf）中先设置skip-grant-tables跳过密码验证(风险比较高，这样所有人都可以进入你的数据库)，还未完美解决</p>
+<p>附数据库备份方法：（参考<a href="https://blog.csdn.net/qq30211478/article/details/76977275" target="_blank" rel="noopener">https://blog.csdn.net/qq30211478/article/details/76977275</a> ，<a href="https://blog.csdn.net/helloxiaozhe/article/details/77680255" target="_blank" rel="noopener">https://blog.csdn.net/helloxiaozhe/article/details/77680255</a> ） </p>
+<p>首先，使用CREATE DATABASE语句创建一个新的数据库。<br>其次，使用mysqldump工具导出要复制的数据库的所有数据库对象和数据。<br>第三，将SQL转储文件导入新的数据库。<br>作为一个演示，假设要把yiibaidb数据库复制到yiibaidb_backup数据库：</p>
+<p>步骤1， 创建yiibaidb_backup数据库：</p>
+<p>首先，登录到MySQL数据库服务器：</p>
+<pre><code>C:\Users\Administrator&gt; mysql -u root -p
+Enter password: **********
+</code></pre><p>然后，使用CREATE DATABASE语句如下：</p>
+<pre><code>CREATE DATABASE yiibaidb_backup;
+</code></pre><p>第三，使用SHOW DATABASES命令验证：</p>
+<pre><code>SHOW DATABASES
+</code></pre><p>步骤2</p>
+<p>使用mysqldump工具将数据库对象和数据转储到SQL文件中。</p>
+<p>假设要将数据库对象和数据库转储到位于D:\database_bak文件夹的SQL文件中，这里是以下命令：</p>
+<pre><code>C:\Users\Administrator&gt; mysqldump -u root -p yiibaidb &gt; d:\database_bak\yiibaidb.sql
+Enter password: **********
+</code></pre><p>基本上，此命令指示mysqldump使用具有密码的root用户帐户登录到MySQL服务器，并将数据库对象和yiibaidb数据库的数据导出到d:\database_bak\yiibaidb.sql。 请注意，运算符(&gt;)表示导出。</p>
+<p>步骤2</p>
+<p>将d:\database_bak\yiibaidb.sql文件导入到yiibaidb_backup数据库。</p>
+<pre><code>C:\Users\Administrator&gt; mysql -u root -p yiibaidb_backup &lt; d:\database_bak\yiibaidb.sql
+Enter password: **********
+</code></pre><p>请注意，运算符(&lt;)表示导入。</p>
+<p>要验证导入，可以使用SHOW TABLES命令快速检查。</p>
+<pre><code>mysql&gt; SHOW TABLES FROM yiibaidb_backup;
+---------------------
+</code></pre>
       
 
       
@@ -375,6 +400,15 @@ NODE_ENV=production node dist/dispatch.js
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/12/21/css实现超出宽度显示省略号/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          css实现超出宽度显示省略号
+        
+      </div>
+    </a>
   
   
     <a href="/2018/11/01/前端代码规范/" id="article-nav-older" class="article-nav-link-wrap">
