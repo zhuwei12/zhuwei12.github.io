@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://zhuwei12.github.io/img/mysql.jpeg">
 <meta property="og:image" content="http://zhuwei12.github.io/img/sequelpro.jpeg">
 <meta property="og:image" content="http://zhuwei12.github.io/img/redis.jpeg">
-<meta property="og:updated_time" content="2018-12-21T13:41:35.335Z">
+<meta property="og:updated_time" content="2018-12-23T14:10:36.089Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="rap2搭建踩坑">
 <meta name="twitter:description" content="rap2是一个开源接口管理工具，比较方便接口调试，不过搭建比较麻烦，需要后端数据库的一些知识。">
@@ -256,7 +256,7 @@ pm2 serve ./build 8082 --name rap2-dolores --watch
 <pre><code>npm run clean
 NODE_ENV=production node dist/dispatch.js
 </code></pre><p>我这边会遇到一个问题是提示我rap数据库找不到，但是应该使用的是RAP2_DELOS_APP_LOCAL这个数据库，不知道哪里出了问题，解决方案是将RAP2_DELOS_APP_LOCAL这个数据库复制了一份到新建的rap数据库，即可正常使用。</p>
-<p>问题二：连接不上数据库，解决方案是在数据库配置文件（/etc/my.cnf）中先设置skip-grant-tables跳过密码验证(风险比较高，这样所有人都可以进入你的数据库)，还未完美解决</p>
+<p>问题二：连接不上数据库，解决方案是在数据库配置文件（/etc/my.cnf）中先设置skip-grant-tables跳过密码验证(风险比较高，这样所有人都可以进入你的数据库)，然后重启数据库（service mysqld start/stop），还未完美解决</p>
 <p>附数据库备份方法：（参考<a href="https://blog.csdn.net/qq30211478/article/details/76977275" target="_blank" rel="noopener">https://blog.csdn.net/qq30211478/article/details/76977275</a> ，<a href="https://blog.csdn.net/helloxiaozhe/article/details/77680255" target="_blank" rel="noopener">https://blog.csdn.net/helloxiaozhe/article/details/77680255</a> ） </p>
 <p>首先，使用CREATE DATABASE语句创建一个新的数据库。<br>其次，使用mysqldump工具导出要复制的数据库的所有数据库对象和数据。<br>第三，将SQL转储文件导入新的数据库。<br>作为一个演示，假设要把yiibaidb数据库复制到yiibaidb_backup数据库：</p>
 <p>步骤1， 创建yiibaidb_backup数据库：</p>
@@ -401,11 +401,11 @@ Enter password: **********
   
 <nav id="article-nav">
   
-    <a href="/2018/12/21/css实现超出宽度显示省略号/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/12/06/mac下远程ssh连接云服务器/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          css实现超出宽度显示省略号
+          mac下远程ssh连接云服务器
         
       </div>
     </a>
@@ -538,15 +538,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">summary</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">react学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color3">react学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -558,7 +562,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
+                <a href="javascript:void(0)" class="js-tag color3">element</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -566,15 +570,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">element</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">project</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">antd-pro</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -590,15 +602,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">mongovue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">后端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">mongovue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -606,7 +614,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">mongoose</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">rap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">react项目</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -618,6 +638,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">规范标准</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
@@ -626,27 +650,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">react项目</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">antd-pro</a>
+                <a href="javascript:void(0)" class="js-tag color3">运维</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">summary</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">规范标准</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">rap</a>
+                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
               </li>
             
             <div class="clearfix"></div>
