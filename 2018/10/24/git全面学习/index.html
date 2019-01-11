@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zhuwei12.github.io">
-  <title>git全面学习 | 朱蔚的博客</title>
+  <title>git全面学习(附ohmyzsh中的git快捷键) | 朱蔚的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="git是分布式版本控制系统，以前只是学习一些命令，现在学一下原理。 git协作开发时常用是，本地有拉取远程的feature分支，并随时保持与远程一致（使用git pull origin feature），本地有自己的dev分支，当本地有修改时与本地feature merge一下。要提交时先与本地feature merge（做这一步之前需要先使本地feature与远程一致即pull），之后push到">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git全面学习">
+<meta property="og:title" content="git全面学习(附ohmyzsh中的git快捷键)">
 <meta property="og:url" content="http://zhuwei12.github.io/2018/10/24/git全面学习/index.html">
 <meta property="og:site_name" content="朱蔚的博客">
 <meta property="og:description" content="git是分布式版本控制系统，以前只是学习一些命令，现在学一下原理。 git协作开发时常用是，本地有拉取远程的feature分支，并随时保持与远程一致（使用git pull origin feature），本地有自己的dev分支，当本地有修改时与本地feature merge一下。要提交时先与本地feature merge（做这一步之前需要先使本地feature与远程一致即pull），之后push到">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-12T08:59:24.467Z">
+<meta property="og:updated_time" content="2019-01-11T04:03:47.706Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git全面学习">
+<meta name="twitter:title" content="git全面学习(附ohmyzsh中的git快捷键)">
 <meta name="twitter:description" content="git是分布式版本控制系统，以前只是学习一些命令，现在学一下原理。 git协作开发时常用是，本地有拉取远程的feature分支，并随时保持与远程一致（使用git pull origin feature），本地有自己的dev分支，当本地有修改时与本地feature merge一下。要提交时先与本地feature merge（做这一步之前需要先使本地feature与远程一致即pull），之后push到">
   
     <link rel="alternative" href="/atom.xml" title="朱蔚的博客" type="application/atom+xml">
@@ -146,7 +146,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      git全面学习
+      git全面学习(附ohmyzsh中的git快捷键)
     </h1>
   
 
@@ -177,7 +177,7 @@
 <p>7、上面说的都是本地仓库如何使用，那么我们其实主要是关联到远程仓库中的（如GitHub）</p>
 <p>要关联一个远程库，使用命令git remote add origin git@server-name:path/repo-name.git；</p>
 <p>关联后，使用命令git push -u origin master第一次推送master分支的所有内容；</p>
-<p>此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改</p>
+<p>此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改（如果想强制覆盖远程分支，使用–force参数）</p>
 <p>8、从远程拷贝一个项目下来使用git clone 远程仓库地址</p>
 <p>1.git clone 不指定分支（默认master分支）</p>
 <p> git clone  <a href="http://10.1.1.11/service/tmall-service.git" target="_blank" rel="noopener">http://10.1.1.11/service/tmall-service.git</a></p>
@@ -214,6 +214,57 @@ $ git checkout master
 Switched to branch &apos;master&apos;
 </code></pre><p>然后，敲命令git tag <name>就可以打一个新标签：</name></p>
 <pre><code>$ git tag v1.0
+</code></pre><p><strong>附快捷键</strong></p>
+<pre><code>g - git
+gst - git status
+gl - git pull
+gup - git pull --rebase
+gp - git push
+gd - git diff
+gdc - git diff --cached
+gdv - git diff -w &quot;$@&quot; | view
+gc - git commit -v
+gc! - git commit -v --amend
+gca - git commit -v -a
+gca! - git commit -v -a --amend
+gcmsg - git commit -m
+gco - git checkout
+gcm - git checkout master
+gr - git remote
+grv - git remote -v
+grmv - git remote rename
+grrm - git remote remove
+gsetr - git remote set-url
+grup - git remote update
+grbi - git rebase -i
+grbc - git rebase --continue
+grba - git rebase --abort
+gb - git branch
+gba - git branch -a
+gcount - git shortlog -sn
+gcl - git config --list
+gcp - git cherry-pick
+glg - git log --stat --max-count=10
+glgg - git log --graph --max-count=10
+glgga - git log --graph --decorate --all
+glo - git log --oneline --decorate --color
+glog - git log --oneline --decorate --color --graph
+gss - git status -s
+ga - git add
+gm - git merge
+grh - git reset HEAD
+grhh - git reset HEAD --hard
+gclean - git reset --hard &amp;&amp; git clean -dfx
+gwc - git whatchanged -p --abbrev-commit --pretty=medium
+gsts - git stash show --text
+gsta - git stash
+gstp - git stash pop
+gstd - git stash drop
+ggpull - git pull origin $(current_branch)
+ggpur - git pull --rebase origin $(current_branch)
+ggpush - git push origin $(current_branch)
+ggpnp - git pull origin $(current_branch) &amp;&amp; git push origin $(current_branch)
+glp - _git_log_prettily
 </code></pre>
       
 
@@ -265,7 +316,7 @@ Switched to branch &apos;master&apos;
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/git//" class="article-tag-list-link color4">git</a>
+        			<a href="/categories/前端//" class="article-tag-list-link color3">前端</a>
         		</li>
       		
 		</ul>
@@ -388,7 +439,7 @@ Switched to branch &apos;master&apos;
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 Zhu Wei
+    		&copy; 2019 Zhu Wei
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -596,6 +647,30 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">缓存</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
             
             <div class="clearfix"></div>
