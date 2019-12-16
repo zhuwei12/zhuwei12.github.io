@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://zhuwei12.github.io">
   <title>react小书学习（生命周期） | 朱蔚的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="简单看一下react的生命周期。">
+  <meta name="description" content="简单看一下react的生命周期。参考https://juejin.im/entry/587de1b32f301e0057a28897">
 <meta name="keywords" content="react学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="react小书学习（生命周期）">
 <meta property="og:url" content="http://zhuwei12.github.io/2018/10/11/act小书学习（生命周期）/index.html">
 <meta property="og:site_name" content="朱蔚的博客">
-<meta property="og:description" content="简单看一下react的生命周期。">
+<meta property="og:description" content="简单看一下react的生命周期。参考https://juejin.im/entry/587de1b32f301e0057a28897">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-17T04:27:01.851Z">
+<meta property="og:updated_time" content="2019-01-12T11:14:53.285Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react小书学习（生命周期）">
-<meta name="twitter:description" content="简单看一下react的生命周期。">
+<meta name="twitter:description" content="简单看一下react的生命周期。参考https://juejin.im/entry/587de1b32f301e0057a28897">
   
     <link rel="alternative" href="/atom.xml" title="朱蔚的博客" type="application/atom+xml">
   
@@ -159,48 +159,97 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>简单看一下react的生命周期。</p>
+        <p>简单看一下react的生命周期。参考<a href="https://juejin.im/entry/587de1b32f301e0057a28897" target="_blank" rel="noopener">https://juejin.im/entry/587de1b32f301e0057a28897</a></p>
 <a id="more"></a>
-<p>getInitialState</p>
-<p>初始化组件 state 数据，但是在 es6 的语法中，我们可以使用以下书写方式代替</p>
-<pre><code>class Hello extends React.Component {
-    constructor(props, context) {
-        super(props, context);
-        // 初始化组件 state 数据
-        this.state = {
-            now: Date.now()
-        }
-    }
-}
-</code></pre><p>render</p>
-<p>最常用的hook，返回组件要渲染的模板。</p>
-<p>comopentDidMount</p>
-<p>组件第一次加载时渲染完成的事件，一般在此获取网络数据。实际开始项目开发时，会经常用到。（一开始先加载loading，然后等数据请求完了setState来更新）</p>
-<p>shouldComponentUpdate</p>
-<p>主要用于性能优化，建议每个组件都加上pureRender这个优化防止不必要的更新（props和state不变的话就不需要刷新，默认情况下会有不必要的刷新），使用方法为：</p>
-<pre><code>import pureRender from &apos;pure-render-decorator&apos;
-@pureRender
-class Page extends Component {...}
-
-  直接装饰器写法，在每个class前面加@pureRender 
-相当于给class里的生命周期加了个方法
-this.shouldComponentUpdate()=pureRender.shouldComponentUpdate() 
-</code></pre><p>componentDidUpdate</p>
-<p>组件更新了之后触发的事件，一般用于清空并更新数据。实际开始项目开发时，会经常用到。</p>
+<h3 id="生命周期的8个方法"><a href="#生命周期的8个方法" class="headerlink" title="生命周期的8个方法"></a>生命周期的8个方法</h3><p>1 componentWillMount()</p>
+<p>执行场景</p>
+<p>在render()方法之前</p>
+<p>解释</p>
+<p>1 因为componentWillMount是在render之前执行，所以在这个方法中setState不会发生重新渲染(re-render);</p>
+<p>2 这是服务端渲染(server render)中唯一调用的钩子(hook);</p>
+<p>3 通常情况下，推荐用constructor()方法代替;</p>
+<p>2 render()</p>
+<p>执行场景</p>
+<p>1 在componentWillMount()方法之后</p>
+<p>2 在componentWillReceive(nextProps, nextState)方法之后</p>
+<p>3 componentDidMount()</p>
+<p>执行场景</p>
+<p>在render()方法之后</p>
+<p>解释</p>
+<p>1 这个方法会在render()之后立即执行；</p>
+<p>2 这里可以对DOM进行操作，这个函数之后ref变成实际的DOM(@TODO 表述可能不清晰);</p>
+<p>3 这里可以加载服务器数据，并且如果使用了redux之类的数据服务，这里可以出发加载服务器数据的action;</p>
+<p>4 这里可以使用setState()方法触发重新渲染(re-render);</p>
+<p>4 componentWillReceiveProps(nextProps)</p>
+<p>执行场景</p>
+<p>在已经挂在的组件(mounted component)接收到新props时触发;<br>简单的说是在除了第一次生命周期(componentWillMount -&gt; render -&gt; componentDidMount)之后的生命周期中出发;</p>
+<p>解释</p>
+<p>1 如果你需要在props发生变化(或者说新传入的props)来更新state，你可能需要比较this.props和nextProps, 然后使用this.setState()方法来改变this.state;</p>
+<p>注意</p>
+<p>1 React可能会在porps传入时即使没有发生改变的时候也发生重新渲染, 所以如果你想自己处理改变，请确保比较props当前值和下一次值; 这可能造成组件重新渲染;</p>
+<p>2 如果你只是调用this.setState()而不是从外部传入props, 那么不会触发componentWillReceiveProps(nextProps)函数；这就意味着: this.setState()方法不会触发componentWillReceiveProps(), props的改变或者props没有改变才会触发这个方法;</p>
+<p>5 shouldComponentUpdate(nextProps, nextState)</p>
+<p>执行场景</p>
+<p>在接收到新props或state时，或者说在componentWillReceiveProps(nextProps)后触发</p>
+<p>解释</p>
+<p>在接收新的props或state时确定是否发生重新渲染，默认情况返回true，表示会发生重新渲染</p>
+<p>注意</p>
+<p>1 这个方法在首次渲染时或者forceUpdate()时不会触发;</p>
+<p>2 这个方法如果返回false, 那么props或state发生改变的时候会阻止子组件发生重新渲染;</p>
+<p>3 目前，如果shouldComponentUpdate(nextProps, nextState)返回false, 那么componentWillUpdate(nextProps, nextState), render(), componentDidUpdate()都不会被触发;</p>
+<p>4 Take care: 在未来，React可能把shouldComponentUpdate()当做一个小提示(hint)而不是一个指令(strict directive)，并且它返回false仍然可能触发组件重新渲染(re-render);</p>
+<p>Good Idea</p>
+<p>在React 15.3以后, React.PureComponent已经支持使用，个人推荐，它代替了(或者说合并了)pure-render-mixin，实现了shallowCompare()。 扩展阅读</p>
+<p>6 componentWillUpdate(nextProps, nextState)</p>
+<p>执行场景</p>
+<p>在props或state发生改变或者shouldComponentUpdate(nextProps, nextState)触发后, 在render()之前</p>
+<p>解释</p>
+<p>1 这个方法在组件初始化时不会被调用;</p>
+<p>注意</p>
+<p>1 千万不要在这个函数中调用this.setState()方法.;</p>
+<p>2 如果确实需要响应props的改变，那么你可以在componentWillReceiveProps(nextProps)中做响应操作;</p>
+<p>3 如果shouldComponentUpdate(nextProps, nextState)返回false，那么componentWillUpdate()不会被触发;</p>
+<p>7 componentDidUpdate(prevProps, prevState)</p>
+<p>执行场景</p>
+<p>在发生更新或componentWillUpdate(nextProps, nextState)后</p>
+<p>解释</p>
+<p>1 该方法不会再组件初始化时触发;</p>
+<p>2 使用这个方法可以对组件中的DOM进行操作;</p>
+<p>3 只要你比较了this.props和nextProps，你想要发出网络请求(nextwork requests)时就可以发出, 当然你也可以不发出网络请求;</p>
+<p>注意</p>
+<p>如果shouldComponentUpdate(nextProps, nextState)返回false, 那么componentDidUpdate(prevProps, prevState)不会被触发;</p>
+<p>8 componentWillUnmount()（刷新页面时不会触发）</p>
+<p>执行场景</p>
+<p>在组件卸载(unmounted)或销毁(destroyed)之前</p>
+<p>解释</p>
+<p>这个方法可以让你处理一些必要的清理操作，比如无效的timers、interval，或者取消网络请求，或者清理任何在componentDidMount()中创建的DOM元素(elements);</p>
+<p>相关 setState(Object/Function)</p>
+<p>解释</p>
+<p>通过事件(event handlers)或服务请求回调(server request callbacks), 触发UI更新(re-render);</p>
+<p>参数</p>
+<p>1 可以是Object类型, 这时是异步的setState, 同时接收一个在state发生改变之后的回调, 如this.setState(Object, callback), 其中callback可以是() =&gt; { … this.state … };</p>
+<p>2 可以是Function类型, 这时是同步的setState, 例如: (prevState, prevProps) =&gt; nextState, 同步存在一定效率问题(不理解), 但是它有一个好处就是支持Immutable;</p>
+<p>二 两种生命周期</p>
+<p>1 组件初始化</p>
+<p>原因</p>
+<p>组件第一次建立</p>
+<p>触发</p>
+<p>componentWillMount -&gt; render -&gt; componentDidMount</p>
+<p>2 组件更新 – props change</p>
+<p>原因</p>
+<p>props发生改变</p>
+<p>触发</p>
+<p>componentWillReceiveProps -&gt; shouldComponentUpdate -&gt; componentWillUpdate -&gt; componentDidUpdate</p>
+<p>3 组件更新 – state change</p>
+<p>原因</p>
+<p>this.setState()使state发生改变</p>
+<p>触发</p>
+<p>shoudlComponentUpdate -&gt; componentWillUpdate -&gt; componentDidUpdate</p>
+<p>4 组件卸载或销毁</p>
+<p>原因</p>
+<p>组件卸载或销毁</p>
+<p>触发</p>
 <p>componentWillUnmount</p>
-<p>组件在销毁之前触发的事件，一般用户存储一些特殊信息，以及清理setTimeout事件等。</p>
-<p>调用顺序及次数</p>
-<p>getDefaultProps()，调用1次</p>
-<p>getInitialState()，调用1次</p>
-<p>componentWillMount()，调用1次</p>
-<p>render()，调用&gt;=1次</p>
-<p>componentDidMount()：仅客户端，调用1次</p>
-<p>componentWillReceiveProps(object nextProps)，调用&gt;=0次</p>
-<p>ShouldComponentUpdate(object nextProps, object nextState)，调用&gt;=0次</p>
-<p>componentWillUpdate(object nextProps, object nextState)，调用&gt;=0次</p>
-<p>render()，调用&gt;=1次</p>
-<p>componentDidUpdate(object prevProps, object prevState)，调用&gt;=0次</p>
-<p>componentWillUnmount()，调用1次</p>
 
       
 
@@ -462,15 +511,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">react学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -478,11 +519,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">element</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -490,15 +527,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">project</a>
+                <a href="javascript:void(0)" class="js-tag color3">react学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -506,11 +535,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">element</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">project</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">html css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">语法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -522,7 +575,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">后端</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -530,7 +583,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -538,11 +591,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">运维</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">mongoose</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">rap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -554,7 +619,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">项目</a>
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -562,27 +627,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+                <a href="javascript:void(0)" class="js-tag color3">项目</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数据结构与算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">运维</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
+                <a href="javascript:void(0)" class="js-tag color4">懒加载</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -590,15 +639,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -606,7 +651,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数据结构与算法</a>
               </li>
             
             <div class="clearfix"></div>

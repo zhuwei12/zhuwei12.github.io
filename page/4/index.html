@@ -140,30 +140,42 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-react之数据持久化存储（localstorage）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-css实现半圆内阴影" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/19/react之数据持久化存储（localstorage）/">react之数据持久化存储（localstorage）</a>
+      <a class="article-title" href="/2018/12/26/css实现半圆内阴影/">css实现半圆+内阴影</a>
     </h1>
   
 
         
-        <a href="/2018/10/19/react之数据持久化存储（localstorage）/" class="archive-article-date">
-  	<time datetime="2018-10-19T05:34:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-19</time>
+        <a href="/2018/12/26/css实现半圆内阴影/" class="archive-article-date">
+  	<time datetime="2018-12-26T10:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>数据可以存储在localstorage中便于持久化存储。</p>
-        
-          <a class="article-more-a" href="/2018/10/19/react之数据持久化存储（localstorage）/#more">more >></a>
-        
+        <p>思路是在需要加半圆的元素上加before和after伪元素</p>
+<pre><code>xxx::before{
+    z-index: 1;
+    width: 12px;
+    height: 10px;
+    content: &quot; &quot;;
+    top: 106px;
+    position: absolute;
+    left:-5px;
+    display: block;
+    background: rgba(248, 248, 248, 1);//背景色
+    border-radius: 36px 36px 0 0;
+    box-shadow: -2px 7px 10px inset rgba(0, 0, 0, 0.03);
+    transform: rotate(90deg);
+}
+</code></pre>
       
 
       
@@ -176,7 +188,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">react学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
         		</li>
       		
 		</ul>
@@ -188,7 +200,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/react//" class="article-tag-list-link color1">react</a>
+        			<a href="/categories/css//" class="article-tag-list-link color4">css</a>
         		</li>
       		
 		</ul>
@@ -197,7 +209,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/19/react之数据持久化存储（localstorage）/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/12/26/css实现半圆内阴影/">展开全文 >></a>
         </p>
       
 
@@ -227,29 +239,29 @@
 
 
   
-    <article id="post-react之获取原生方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-写UI稿时的css问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/19/react之获取原生方法/">react之获取原生方法</a>
+      <a class="article-title" href="/2018/12/26/写UI稿时的css问题/">写UI稿时的css问题</a>
     </h1>
   
 
         
-        <a href="/2018/10/19/react之获取原生方法/" class="archive-article-date">
-  	<time datetime="2018-10-19T03:06:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-19</time>
+        <a href="/2018/12/26/写UI稿时的css问题/" class="archive-article-date">
+  	<time datetime="2018-12-26T09:17:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>使用ref获取到原生dom元素，并调用原生api</p>
+        <p>之前都是自己一个人写写样式，也没有什么规范，页面看上去不错就行，但是经历了公司的正规的UI稿，样式的问题就非常多了，这里做一些总结。</p>
         
-          <a class="article-more-a" href="/2018/10/19/react之获取原生方法/#more">more >></a>
+          <a class="article-more-a" href="/2018/12/26/写UI稿时的css问题/#more">more >></a>
         
       
 
@@ -263,7 +275,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">react学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
         		</li>
       		
 		</ul>
@@ -275,7 +287,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/react//" class="article-tag-list-link color1">react</a>
+        			<a href="/categories/css//" class="article-tag-list-link color4">css</a>
         		</li>
       		
 		</ul>
@@ -284,7 +296,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/19/react之获取原生方法/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/12/26/写UI稿时的css问题/">展开全文 >></a>
         </p>
       
 
@@ -314,30 +326,28 @@
 
 
   
-    <article id="post-react小项目练手" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-边框的0-5px问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/18/react小项目练手/">react全家桶+antd练手（初始化）</a>
+      <a class="article-title" href="/2018/12/26/边框的0-5px问题/">边框的0.5px问题</a>
     </h1>
   
 
         
-        <a href="/2018/10/18/react小项目练手/" class="archive-article-date">
-  	<time datetime="2018-10-18T06:38:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-18</time>
+        <a href="/2018/12/26/边框的0-5px问题/" class="archive-article-date">
+  	<time datetime="2018-12-26T07:13:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>使用脚手架create-react-app，再引入antd。</p>
-        
-          <a class="article-more-a" href="/2018/10/18/react小项目练手/#more">more >></a>
-        
+        <p>比较完美的解决方案是用伪元素before、after加一个1px的border，设置transform: scaleY(0.5)或scaleX（0.5）值（看你想往哪个方向压缩），压缩1px的border为一半，就实现了，各个手机适配都没问题。</p>
+
       
 
       
@@ -350,7 +360,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">react项目</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
         		</li>
       		
 		</ul>
@@ -362,7 +372,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/react//" class="article-tag-list-link color1">react</a>
+        			<a href="/categories/css//" class="article-tag-list-link color4">css</a>
         		</li>
       		
 		</ul>
@@ -371,7 +381,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/18/react小项目练手/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/12/26/边框的0-5px问题/">展开全文 >></a>
         </p>
       
 
@@ -401,30 +411,28 @@
 
 
   
-    <article id="post-react学小书学习（redux）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-后端传换行值前端如何透传" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/14/react学小书学习（redux）/">react小书学习（redux）</a>
+      <a class="article-title" href="/2018/12/26/后端传换行值前端如何透传/">后端传换行值(\n)前端如何透传</a>
     </h1>
   
 
         
-        <a href="/2018/10/14/react学小书学习（redux）/" class="archive-article-date">
-  	<time datetime="2018-10-14T08:57:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-14</time>
+        <a href="/2018/12/26/后端传换行值前端如何透传/" class="archive-article-date">
+  	<time datetime="2018-12-26T07:12:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>redux并不是 React 独有的一个插件，它是顺应前端组件化开发潮流而诞生的一种状态管理模型</p>
-        
-          <a class="article-more-a" href="/2018/10/14/react学小书学习（redux）/#more">more >></a>
-        
+        <p>p标签，css加white-space: pre-line;即可</p>
+
       
 
       
@@ -437,7 +445,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">react学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
         		</li>
       		
 		</ul>
@@ -449,7 +457,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/react//" class="article-tag-list-link color1">react</a>
+        			<a href="/categories/css//" class="article-tag-list-link color4">css</a>
         		</li>
       		
 		</ul>
@@ -458,7 +466,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/14/react学小书学习（redux）/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/12/26/后端传换行值前端如何透传/">展开全文 >></a>
         </p>
       
 
@@ -488,30 +496,30 @@
 
 
   
-    <article id="post-react小书学习（context）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-数据库从一台服务器上复制到另一台的方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/14/react小书学习（context）/">react小书学习（context）</a>
+      <a class="article-title" href="/2018/12/23/数据库从一台服务器上复制到另一台的方法/">数据库从一台服务器上复制到另一台的方法</a>
     </h1>
   
 
         
-        <a href="/2018/10/14/react小书学习（context）/" class="archive-article-date">
-  	<time datetime="2018-10-14T07:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-14</time>
+        <a href="/2018/12/23/数据库从一台服务器上复制到另一台的方法/" class="archive-article-date">
+  	<time datetime="2018-12-23T14:34:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>context是一个全局的属性，写起来较复杂，应避免使用。</p>
-        
-          <a class="article-more-a" href="/2018/10/14/react小书学习（context）/#more">more >></a>
-        
+        <p>1，把sampdb数据库从本地主机复制到远程主机121.121.121.121上的mysql服务上去。<br>mysqldump –databases sampdb | mysql -h 121.121.121.121</p>
+<p>2，如果本地主机无法访问远程mysql服务器但能够通过登录远程主机的办法访问它，就可以通过ssh来远程调用mysql程序。<br>mysqldump –databases sampdb | ssh 121.121.121.121 mysql</p>
+<p>3，如果是通过一个慢速网络传输的话，可以通过压缩的方式传递，增快网络传输速度，–compress选项。<br>mysqldump –databases sampdb | mysql –compress -h 121.121.121.121 sampbd</p>
+
       
 
       
@@ -524,7 +532,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">react学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
       		
 		</ul>
@@ -536,7 +544,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/react//" class="article-tag-list-link color1">react</a>
+        			<a href="/categories/运维//" class="article-tag-list-link color3">运维</a>
         		</li>
       		
 		</ul>
@@ -545,7 +553,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/14/react小书学习（context）/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/12/23/数据库从一台服务器上复制到另一台的方法/">展开全文 >></a>
         </p>
       
 
@@ -575,30 +583,31 @@
 
 
   
-    <article id="post-react的组件props，state等" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-css实现超出宽度显示省略号" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/14/react的组件props，state等/">react的组件props，state等</a>
+      <a class="article-title" href="/2018/12/21/css实现超出宽度显示省略号/">css实现超出宽度显示省略号</a>
     </h1>
   
 
         
-        <a href="/2018/10/14/react的组件props，state等/" class="archive-article-date">
-  	<time datetime="2018-10-14T06:05:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-14</time>
+        <a href="/2018/12/21/css实现超出宽度显示省略号/" class="archive-article-date">
+  	<time datetime="2018-12-21T12:37:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这个还是需要再细细捋一下。</p>
-        
-          <a class="article-more-a" href="/2018/10/14/react的组件props，state等/#more">more >></a>
-        
+        <p>在有宽度的元素下加</p>
+<pre><code>overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
+</code></pre>
       
 
       
@@ -611,7 +620,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">react学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
         		</li>
       		
 		</ul>
@@ -623,7 +632,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/react//" class="article-tag-list-link color1">react</a>
+        			<a href="/categories/css//" class="article-tag-list-link color4">css</a>
         		</li>
       		
 		</ul>
@@ -632,7 +641,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/14/react的组件props，state等/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/12/21/css实现超出宽度显示省略号/">展开全文 >></a>
         </p>
       
 
@@ -662,30 +671,28 @@
 
 
   
-    <article id="post-react小书学习（高阶组件）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-mac下远程ssh连接云服务器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/12/react小书学习（高阶组件）/">react小书学习（高阶组件）</a>
+      <a class="article-title" href="/2018/12/06/mac下远程ssh连接云服务器/">mac下远程ssh连接云服务器</a>
     </h1>
   
 
         
-        <a href="/2018/10/12/react小书学习（高阶组件）/" class="archive-article-date">
-  	<time datetime="2018-10-12T03:04:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-12</time>
+        <a href="/2018/12/06/mac下远程ssh连接云服务器/" class="archive-article-date">
+  	<time datetime="2018-12-06T08:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>高阶组件是一个函数，传给它一个组件，返回一个新的组件。（其实就是相当于给原组件加了些props，注意返回的时候加上原来的props 如 &lt; WrappedContent{…methods} {…this.props} /&gt;）</p>
-        
-          <a class="article-more-a" href="/2018/10/12/react小书学习（高阶组件）/#more">more >></a>
-        
+        <p>命令为ssh <a href="mailto:root@xxx.xxx.xx.xx" target="_blank" rel="noopener">root@xxx.xxx.xx.xx</a>，再输入密码即可</p>
+
       
 
       
@@ -698,7 +705,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">react学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
         		</li>
       		
 		</ul>
@@ -710,7 +717,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/react//" class="article-tag-list-link color1">react</a>
+        			<a href="/categories/运维//" class="article-tag-list-link color3">运维</a>
         		</li>
       		
 		</ul>
@@ -719,7 +726,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/12/react小书学习（高阶组件）/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/12/06/mac下远程ssh连接云服务器/">展开全文 >></a>
         </p>
       
 
@@ -749,29 +756,29 @@
 
 
   
-    <article id="post-act小书学习（props-children）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-rap2搭建踩坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/11/act小书学习（props-children）/">react小书学习（props.children）</a>
+      <a class="article-title" href="/2018/12/05/rap2搭建踩坑/">rap2搭建踩坑</a>
     </h1>
   
 
         
-        <a href="/2018/10/11/act小书学习（props-children）/" class="archive-article-date">
-  	<time datetime="2018-10-11T12:54:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-11</time>
+        <a href="/2018/12/05/rap2搭建踩坑/" class="archive-article-date">
+  	<time datetime="2018-12-05T07:38:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>props.children是在一个组件里面写的JSX元素的集合。</p>
+        <p>rap2是一个开源接口管理工具，比较方便接口调试，不过搭建比较麻烦，需要后端数据库的一些知识。</p>
         
-          <a class="article-more-a" href="/2018/10/11/act小书学习（props-children）/#more">more >></a>
+          <a class="article-more-a" href="/2018/12/05/rap2搭建踩坑/#more">more >></a>
         
       
 
@@ -785,7 +792,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">react学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">rap</a>
         		</li>
       		
 		</ul>
@@ -797,7 +804,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/react//" class="article-tag-list-link color1">react</a>
+        			<a href="/categories/接口调试平台//" class="article-tag-list-link color2">接口调试平台</a>
         		</li>
       		
 		</ul>
@@ -806,7 +813,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/11/act小书学习（props-children）/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/12/05/rap2搭建踩坑/">展开全文 >></a>
         </p>
       
 
@@ -836,29 +843,29 @@
 
 
   
-    <article id="post-act小书学习（生命周期）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-前端代码规范" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/11/act小书学习（生命周期）/">react小书学习（生命周期）</a>
+      <a class="article-title" href="/2018/11/01/前端代码规范/">前端代码规范</a>
     </h1>
   
 
         
-        <a href="/2018/10/11/act小书学习（生命周期）/" class="archive-article-date">
-  	<time datetime="2018-10-11T08:58:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-11</time>
+        <a href="/2018/11/01/前端代码规范/" class="archive-article-date">
+  	<time datetime="2018-11-01T06:42:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>简单看一下react的生命周期。</p>
+        <p>代码规范这是看的Airbnb的，做一些总结。项目中文版地址是 <a href="https://github.com/lin-123/javascript" target="_blank" rel="noopener">https://github.com/lin-123/javascript</a></p>
         
-          <a class="article-more-a" href="/2018/10/11/act小书学习（生命周期）/#more">more >></a>
+          <a class="article-more-a" href="/2018/11/01/前端代码规范/#more">more >></a>
         
       
 
@@ -872,7 +879,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">react学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">规范标准</a>
         		</li>
       		
 		</ul>
@@ -884,7 +891,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/react//" class="article-tag-list-link color1">react</a>
+        			<a href="/categories/规范标准//" class="article-tag-list-link color5">规范标准</a>
         		</li>
       		
 		</ul>
@@ -893,7 +900,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/11/act小书学习（生命周期）/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/11/01/前端代码规范/">展开全文 >></a>
         </p>
       
 
@@ -923,29 +930,29 @@
 
 
   
-    <article id="post-act小书学习（子向父组件传值）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-二次封装antd的要点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/11/act小书学习（子向父组件传值）/">react小书学习（子向父组件传值）</a>
+      <a class="article-title" href="/2018/11/01/二次封装antd的要点/">二次封装antd的要点</a>
     </h1>
   
 
         
-        <a href="/2018/10/11/act小书学习（子向父组件传值）/" class="archive-article-date">
-  	<time datetime="2018-10-11T06:52:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-11</time>
+        <a href="/2018/11/01/二次封装antd的要点/" class="archive-article-date">
+  	<time datetime="2018-11-01T03:03:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>子向父传值是用的props这个属性。</p>
+        <p>由于项目需要，需要给antd的Input组件封装一下，加一个limit属性，限制传入字数。</p>
         
-          <a class="article-more-a" href="/2018/10/11/act小书学习（子向父组件传值）/#more">more >></a>
+          <a class="article-more-a" href="/2018/11/01/二次封装antd的要点/#more">more >></a>
         
       
 
@@ -959,7 +966,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">react学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">summary</a>
         		</li>
       		
 		</ul>
@@ -971,7 +978,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/react//" class="article-tag-list-link color1">react</a>
+        			<a href="/categories/summary//" class="article-tag-list-link color3">summary</a>
         		</li>
       		
 		</ul>
@@ -980,7 +987,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/11/act小书学习（子向父组件传值）/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/11/01/二次封装antd的要点/">展开全文 >></a>
         </p>
       
 
@@ -1012,7 +1019,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
   
 
@@ -1111,15 +1118,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">react学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1127,11 +1126,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">element</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1139,15 +1134,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">project</a>
+                <a href="javascript:void(0)" class="js-tag color3">react学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1155,11 +1142,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">element</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">project</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">html css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">语法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1171,7 +1182,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">后端</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1179,7 +1190,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1187,11 +1198,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">运维</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">mongoose</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">rap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1203,7 +1226,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">项目</a>
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1211,27 +1234,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+                <a href="javascript:void(0)" class="js-tag color3">项目</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数据结构与算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">运维</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
+                <a href="javascript:void(0)" class="js-tag color4">懒加载</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1239,15 +1246,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1255,7 +1258,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数据结构与算法</a>
               </li>
             
             <div class="clearfix"></div>
