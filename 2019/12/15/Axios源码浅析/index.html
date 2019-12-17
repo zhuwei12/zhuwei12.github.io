@@ -8,20 +8,22 @@
   <link rel="dns-prefetch" href="http://zhuwei12.github.io">
   <title>Axios源码浅析 | 朱蔚的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="目录： 一、axios与其他请求库的区别 二、axios的实现思路（干货） 三、你不知道的axios 四、思路借鉴">
+  <meta name="description" content="目录：  一、axios与其他请求库的区别 二、axios的实现思路（干货） 三、你不知道的axios 四、思路借鉴">
 <meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Axios源码浅析">
 <meta property="og:url" content="http://zhuwei12.github.io/2019/12/15/Axios源码浅析/index.html">
 <meta property="og:site_name" content="朱蔚的博客">
-<meta property="og:description" content="目录： 一、axios与其他请求库的区别 二、axios的实现思路（干货） 三、你不知道的axios 四、思路借鉴">
+<meta property="og:description" content="目录：  一、axios与其他请求库的区别 二、axios的实现思路（干货） 三、你不知道的axios 四、思路借鉴">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://zhuwei12.github.io/img/axios.png">
-<meta property="og:updated_time" content="2019-12-16T03:53:09.451Z">
+<meta property="og:image" content="http://zhuwei12.github.io/img/axios1.jpg">
+<meta property="og:image" content="http://zhuwei12.github.io/img/axios2.png">
+<meta property="og:image" content="http://zhuwei12.github.io/img/axios2.png">
+<meta property="og:updated_time" content="2019-12-17T03:30:29.195Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Axios源码浅析">
-<meta name="twitter:description" content="目录： 一、axios与其他请求库的区别 二、axios的实现思路（干货） 三、你不知道的axios 四、思路借鉴">
-<meta name="twitter:image" content="http://zhuwei12.github.io/img/axios.png">
+<meta name="twitter:description" content="目录：  一、axios与其他请求库的区别 二、axios的实现思路（干货） 三、你不知道的axios 四、思路借鉴">
+<meta name="twitter:image" content="http://zhuwei12.github.io/img/axios1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="朱蔚的博客" type="application/atom+xml">
   
@@ -161,14 +163,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>目录：</p>
+        <h3>目录：</h3>
+
 <p>一、axios与其他请求库的区别</p>
 <p>二、axios的实现思路（干货）</p>
 <p>三、你不知道的axios</p>
 <p>四、思路借鉴</p>
 <a id="more"></a>
-<p>内容：</p>
-<p>一、axios与其他方法请求库的区别</p>
+<h3>内容：</h3>
+
+<p>先贴上axios源码的地址，便于大家down下来阅读：<a href="https://github.com/axios/axios.git" target="_blank" rel="noopener">https://github.com/axios/axios.git</a></p>
+<h5>一、axios与其他方法请求库的区别</h5>
+
 <p>一般而言用的比较多的是jQuery的ajax、fetch和axios这几个用于请求的库。</p>
 <p>1、早期没有vue、react的时候我们都是使用的<b>jQuery的ajax库</b>，它的优缺点如下：</p>
 <p>1）基于原生xhr，贴近底层，支持jsonp</p>
@@ -187,9 +193,10 @@
 <ul><li>从浏览器中创建 XMLHttpRequest</li><br><li>从 node.js 发出 http 请求</li><br><li>支持 Promise API</li><br><li>拦截请求和响应</li><br><li>转换请求和响应数据</li><br><li>取消请求</li><br><li>自动转换JSON数据</li><br><li>客户端支持防止CSRF/XSRF</li></ul>
 
 <p>可以看到，axios的功能还是非常强大的，具备且不限于之前所有请求库的功能，下面我们就来具体讲讲axios是如何实现这些功能的吧！</p>
-<p>二、axios的实现思路</p>
+<h5>二、axios的实现思路</h5>
+
 <p>axios作为一个小而精的请求库，写的非常清晰明了，大致实现思路如图所示，对照这张图我们再进行分析。</p>
-<p><img src="/img/axios.png" alt=""></p>
+<p><img src="/img/axios1.jpg" alt=""></p>
 <p>我们以一个最简单的请求为例，来看它是怎么走过这一生的。</p>
 <pre><code>import axios form &apos;axios&apos;
 axios.get(&apos;/api/getsomething&apos;)
@@ -373,9 +380,13 @@ function xhrAdapter(config) {
 };
 </code></pre><p>它用的是底层xhr发送的请求。返回的也是个promise，所以前面才可以拿到它的resolve和reject，xhrAdapter内的XHR发送请求成功后会执行这个Promise对象的resolve方法,并将请求的数据传出去, 反之则执行reject方法，并将错误信息作为参数传出去。</p>
 <p>到现在整个axios的运行流程应该很清楚了，下一节我们再进行深入</p>
-<p>三、你不知道的axios</p>
+<h5>三、你不知道的axios</h5>
+
 <p>上面的篇幅简单介绍了一个axios请求是如何一步步被执行并返回的全流程，下面更深层次介绍axios的一些方法，比如请求响应拦截、数据转换器、取消请求等</p>
-<p>axios的亮点很多，我觉得写的很优美的一个还是要数<b>拦截器</b>的实现了。拦截器是在哪里首次出现的呢？是在Axios构造函数中。我们来回顾一下，</p>
+<p>axios的亮点很多，我觉得写的很优美的一个还是要数<b>拦截器</b>的实现了。</p>
+<p>先看看这个图，大概有个印象。</p>
+<p><img src="/img/axios2.png" alt=""></p>
+<p>我们先来回顾一下，拦截器在哪里首次出现的呢？是在Axios构造函数中。</p>
 <pre><code>// /lib/core/Axios.js
 function Axios(instanceConfig) {
   this.defaults = instanceConfig;
@@ -488,7 +499,8 @@ InterceptorManager.prototype.forEach = function forEach(fn) {
 
   return promise;
 };
-</code></pre><p>怎么样，到这里是不是就理解了整个拦截器的实现思路了呢？</p>
+</code></pre><p>现在看看这个图是不是就很清晰了？</p>
+<p><img src="/img/axios2.png" alt=""></p>
 <p>接下来我们再讲一讲<b>数据转换器</b></p>
 <p>使用：</p>
 <pre><code>1、全局转换器添加
@@ -597,7 +609,8 @@ if (config.cancelToken) {
 }
 </code></pre><p>取消功能的核心是通过CancelToken内的this.promise = new Promise(resolve =&gt; resolvePromise = resolve)， 得到实例属性promise，此时该promise的状态为pending 通过这个属性，在/lib/adapters/xhr.js文件中继续给这个promise实例添加.then方法 （xhr.js文件的159行config.cancelToken.promise.then(message =&gt; request.abort())）；</p>
 <p>在CancelToken外界，通过executor参数拿到对cancel方法的控制权， 这样当执行cancel方法时就可以改变实例的promise属性的状态为rejected， 从而执行request.abort()方法达到取消请求的目的。</p>
-<p>四、思路借鉴</p>
+<h5>四、思路借鉴</h5>
+
 <p>读完了整个axios的源码之后，对我们平时写代码有什么可以借鉴之处呢？</p>
 <p>1、拦截器的思路实现</p>
 <p>将请求拦截器和响应拦截器分别放在chain数组的两端，中间是发送请求的方法，一步一步成对执行，将这么多promise进行串联，非常巧妙。</p>
@@ -607,6 +620,9 @@ if (config.cancelToken) {
 <p>自动根据数据类型转换数据，不用用户手动转换，非常棒，用户自行也可以设置，人性化。</p>
 <p>4、取消HTTP请求的处理逻辑</p>
 <p>在取消HTTP请求的逻辑中，axios巧妙的使用了一个Promise来作为触发器，将resolve函数通过callback中参数的形式传递到了外部。这样既能够保证内部逻辑的连贯性，也能够保证在需要进行取消请求时，不需要直接进行相关类的示例数据改动，最大程度上避免了侵入其他的模块。</p>
+<p>参考文章：</p>
+<p><a href="https://github.com/ronffy/axios-tutorial" target="_blank" rel="noopener">https://github.com/ronffy/axios-tutorial</a></p>
+<p><a href="https://segmentfault.com/a/1190000012836882" target="_blank" rel="noopener">https://segmentfault.com/a/1190000012836882</a></p>
 
       
 
