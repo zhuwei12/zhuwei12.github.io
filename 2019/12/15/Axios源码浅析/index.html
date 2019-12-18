@@ -16,14 +16,14 @@
 <meta property="og:site_name" content="朱蔚的博客">
 <meta property="og:description" content="目录：  一、axios与其他请求库的区别 二、axios的实现思路（干货） 三、你不知道的axios 四、思路借鉴">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://zhuwei12.github.io/img/axios1.jpg">
-<meta property="og:image" content="http://zhuwei12.github.io/img/axios2.png">
-<meta property="og:image" content="http://zhuwei12.github.io/img/axios2.png">
-<meta property="og:updated_time" content="2019-12-17T03:30:29.195Z">
+<meta property="og:image" content="http://zhuwei12.github.io/img/axios%20flow.png">
+<meta property="og:image" content="http://zhuwei12.github.io/img/promise.png">
+<meta property="og:image" content="http://zhuwei12.github.io/img/promise.png">
+<meta property="og:updated_time" content="2019-12-18T10:16:12.476Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Axios源码浅析">
 <meta name="twitter:description" content="目录：  一、axios与其他请求库的区别 二、axios的实现思路（干货） 三、你不知道的axios 四、思路借鉴">
-<meta name="twitter:image" content="http://zhuwei12.github.io/img/axios1.jpg">
+<meta name="twitter:image" content="http://zhuwei12.github.io/img/axios%20flow.png">
   
     <link rel="alternative" href="/atom.xml" title="朱蔚的博客" type="application/atom+xml">
   
@@ -196,7 +196,7 @@
 <h5>二、axios的实现思路</h5>
 
 <p>axios作为一个小而精的请求库，写的非常清晰明了，大致实现思路如图所示，对照这张图我们再进行分析。</p>
-<p><img src="/img/axios1.jpg" alt=""></p>
+<p><img src="/img/axios flow.png" alt=""></p>
 <p>我们以一个最简单的请求为例，来看它是怎么走过这一生的。</p>
 <pre><code>import axios form &apos;axios&apos;
 axios.get(&apos;/api/getsomething&apos;)
@@ -251,7 +251,7 @@ function Axios(instanceConfig) {
 }
 
 Axios.prototype.request = function request(config) {
-  // ...后面详细介绍
+  // ...重点请求方法，后面单独讲
 };
 
 // 为支持的请求方法提供别名，这样我们就可以用axios.get等等方法来调用了
@@ -316,21 +316,21 @@ module.exports = function dispatchRequest(config) {
   // Ensure headers exist
   config.headers = config.headers || {};
 
-  // 对请求data进行转换
+  // 转换请求数据
   config.data = transformData(
     config.data,
     config.headers,
     config.transformRequest
   );
 
-  // 对header进行合并处理
+  // 合并header
   config.headers = utils.merge(
     config.headers.common || {},
     config.headers[config.method] || {},
     config.headers || {}
   );
 
-  // 删除header属性里无用的属性
+  // 删除header里没有用的属性
   utils.forEach(
     [&apos;delete&apos;, &apos;get&apos;, &apos;head&apos;, &apos;post&apos;, &apos;put&apos;, &apos;patch&apos;, &apos;common&apos;],
     function cleanHeaderConfig(method) {
@@ -338,8 +338,7 @@ module.exports = function dispatchRequest(config) {
     }
   );
 
-  // http请求适配器会优先使用config上自定义的适配器，没有配置时才会使用默认的XHR或http适配器，
-  // 不过大部分时候，axios提供的默认适配器是能够满足我们的
+  // 调用符合当前环境的请求适配器，一般用默认的即可，也可自己定义
   var adapter = config.adapter || defaults.adapter;
 
   return adapter(config).then(function onAdapterResolution(response) {
@@ -385,7 +384,7 @@ function xhrAdapter(config) {
 <p>上面的篇幅简单介绍了一个axios请求是如何一步步被执行并返回的全流程，下面更深层次介绍axios的一些方法，比如请求响应拦截、数据转换器、取消请求等</p>
 <p>axios的亮点很多，我觉得写的很优美的一个还是要数<b>拦截器</b>的实现了。</p>
 <p>先看看这个图，大概有个印象。</p>
-<p><img src="/img/axios2.png" alt=""></p>
+<p><img src="/img/promise.png" alt=""></p>
 <p>我们先来回顾一下，拦截器在哪里首次出现的呢？是在Axios构造函数中。</p>
 <pre><code>// /lib/core/Axios.js
 function Axios(instanceConfig) {
@@ -397,13 +396,13 @@ function Axios(instanceConfig) {
     response: new InterceptorManager()
   };
 }
-</code></pre><p>很显然要进InterceptorManager这个构造函数中去看看了。</p>
+</code></pre><p>那我们进InterceptorManager这个构造函数中去看看。</p>
 <pre><code>// /lib/core/InterceptorManager.js
 function InterceptorManager() {
-  this.handlers = [];// 存放拦截器方法，数组内每一项都是有两个属性的对象，两个属性分别对应成功和失败后执行的函数。
+  this.handlers = [];// 用来存放拦截器方法，数组内每一项都有两个属性，一个成功的一个失败的
 }
 
-// 往拦截器里添加拦截方法
+// 我们使用的就是这个use方法，往handlers数组中加一个对象（成功+失败）
 InterceptorManager.prototype.use = function use(fulfilled, rejected) {
   this.handlers.push({
     fulfilled: fulfilled,
@@ -411,7 +410,7 @@ InterceptorManager.prototype.use = function use(fulfilled, rejected) {
   });
   return this.handlers.length - 1;
 };
-// 用来注销指定的拦截器
+// 注销指定拦截器
 InterceptorManager.prototype.eject = function eject(id) {
   if (this.handlers[id]) {
     this.handlers[id] = null;
@@ -426,7 +425,7 @@ InterceptorManager.prototype.forEach = function forEach(fn) {
   });
 };
 </code></pre><p>这个构造函数其实就三个方法，use、eject、forEach，都是操作拦截器里的handler这个数组的。</p>
-<p>那我们是怎么使用这个拦截器的呢？我们通过它的use方法来使用它。</p>
+<p>让我们看看拦截器的使用，就是上面说的use方法，可以看到确实是传了两个参数，一个成功的一个失败的</p>
 <pre><code>axios.interceptors.request.use(config =&gt; {
     // 在发送http请求之前做些什么
     return config; // 有且必须有一个config对象被返回
@@ -440,10 +439,10 @@ InterceptorManager.prototype.forEach = function forEach(fn) {
   // ...
   var chain = [dispatchRequest, undefined];
 
-  // 初始化一个promise对象，状态为resolved，接收到的参数为config对象
+  // 初始化一个参数为config的promise对象，状态为resolved
   var promise = Promise.resolve(config);
 
-  // 如果有添加拦截器的话，将拦截器放进chain数组中
+  // 将拦截器放进chain数组中
   // 这里注意一下请求拦截器是unshift方式入栈的，响应拦截器是push进去的，一个在头一个在尾
   this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor) {
     chain.unshift(interceptor.fulfilled, interceptor.rejected);
@@ -453,30 +452,11 @@ InterceptorManager.prototype.forEach = function forEach(fn) {
     chain.push(interceptor.fulfilled, interceptor.rejected);
   });
 
-
-  // 添加了拦截器后的chain数组大概是这样：
-  // [
-  //   requestFulfilledFn, requestRejectedFn, ..., 
-  //   dispatchRequest, undefined,
-  //   responseFulfilledFn, responseRejectedFn, ....,
-  // ]
-
-  // 只要chain数组长度不为0，就一直执行while循环
   while (chain.length) {
-    // 数组的 shift() 方法用于把数组的第一个元素从其中删除，并返回第一个元素的值。
-    // 每次执行while循环，从chain数组里按序取出两项，并分别作为promise.then方法的第一个和第二个参数
-
-    // 按照我们使用InterceptorManager.prototype.use添加拦截器的规则，
-    // 正好每次添加的就是我们通过InterceptorManager.prototype.use方法添加的成功和失败回调
-
-    // 通过InterceptorManager.prototype.use往拦截器数组里添加拦截器时使用的数组的push方法，
-    // 对于请求拦截器:
-    // 从拦截器数组按序读到后是通过unshift方法往chain数组数里添加的，又通过shift方法从chain数组里取出的，
-    // 所以得出结论：对于请求拦截器，先添加的拦截器会后执行
-    // 对于响应拦截器:
-    // 从拦截器数组按序读到后是通过push方法往chain数组里添加的，又通过shift方法从chain数组里取出的，
-    // 所以得出结论：对于响应拦截器，添加的拦截器先执行
-
+    // 每次从chain数组里按序取出两项，作为promise.then方法的第一个和第二个参数
+    // 这两个参数就是我们使用InterceptorManager.prototype.use方法添加的成功和失败回调
+    // 注意一下请求拦截器是unshift进数组的，shift出来，所以请求拦截器是先添加的后执行
+    // 而相应拦截器是push进数组的，shift出来，所以相应拦截器是先添加先执行
     // 第一个请求拦截器的fulfilled函数会接收到promise对象初始化时传入的config对象，
     // 而请求拦截器又规定用户写的fulfilled函数必须返回一个config对象，
     // 所以通过promise实现链式调用时，每个请求拦截器的fulfilled函数都会接收到一个config对象
@@ -500,19 +480,19 @@ InterceptorManager.prototype.forEach = function forEach(fn) {
   return promise;
 };
 </code></pre><p>现在看看这个图是不是就很清晰了？</p>
-<p><img src="/img/axios2.png" alt=""></p>
+<p><img src="/img/promise.png" alt=""></p>
 <p>接下来我们再讲一讲<b>数据转换器</b></p>
 <p>使用：</p>
 <pre><code>1、全局转换器添加
 // 往现有的请求转换器里增加转换方法
 axios.defaults.transformRequest.push((data, headers) =&gt; {
-  // ...处理data
+  // ...处理数据
   return data;
 });
 
 // 重写请求转换器
 axios.defaults.transformRequest = [(data, headers) =&gt; {
-  // ...处理data
+  // ...处理数据
   return data;
 }];
 
@@ -520,9 +500,9 @@ axios.defaults.transformRequest = [(data, headers) =&gt; {
 axios.get(url, {
   // ...
   transformRequest: [
-    ...axios.defaults.transformRequest, // 去掉这行代码就等于重写请求转换器了
+    ...axios.defaults.transformRequest, 
     (data, headers) =&gt; {
-      // ...处理data
+      // ...处理数据
       return data;
     }
   ]
@@ -583,6 +563,7 @@ source.cancel(&apos;取消请求&apos;);
 function CancelToken(executor) {
 
   var resolvePromise;
+  // 设置一个状态为pending的promise
   this.promise = new Promise(function promiseExecutor(resolve) {
     resolvePromise = resolve;
   });
@@ -592,12 +573,14 @@ function CancelToken(executor) {
       return;
     }
     token.reason = new Cancel(message);
+    // 将promise的状态设为resolve
     resolvePromise(token.reason);
   });
 }
 
 // /lib/adapters/xhr.js  -  159行
 if (config.cancelToken) {
+    // 这里将promise设为reject，取消后面的请求
     config.cancelToken.promise.then(function onCanceled(cancel) {
         if (!request) {
             return;
@@ -607,8 +590,7 @@ if (config.cancelToken) {
         request = null;
     });
 }
-</code></pre><p>取消功能的核心是通过CancelToken内的this.promise = new Promise(resolve =&gt; resolvePromise = resolve)， 得到实例属性promise，此时该promise的状态为pending 通过这个属性，在/lib/adapters/xhr.js文件中继续给这个promise实例添加.then方法 （xhr.js文件的159行config.cancelToken.promise.then(message =&gt; request.abort())）；</p>
-<p>在CancelToken外界，通过executor参数拿到对cancel方法的控制权， 这样当执行cancel方法时就可以改变实例的promise属性的状态为rejected， 从而执行request.abort()方法达到取消请求的目的。</p>
+</code></pre><p>看到这应该知道其实两种方法最后调用的都是cancelToken里面的executor函数，将canceltoken的promise设为resolved，传进最后调用的xhr中，将整个promise链设为reject，取消请求。</p>
 <h5>四、思路借鉴</h5>
 
 <p>读完了整个axios的源码之后，对我们平时写代码有什么可以借鉴之处呢？</p>
@@ -621,6 +603,7 @@ if (config.cancelToken) {
 <p>4、取消HTTP请求的处理逻辑</p>
 <p>在取消HTTP请求的逻辑中，axios巧妙的使用了一个Promise来作为触发器，将resolve函数通过callback中参数的形式传递到了外部。这样既能够保证内部逻辑的连贯性，也能够保证在需要进行取消请求时，不需要直接进行相关类的示例数据改动，最大程度上避免了侵入其他的模块。</p>
 <p>参考文章：</p>
+<p><a href="https://github.com/axios/axios" target="_blank" rel="noopener">https://github.com/axios/axios</a></p>
 <p><a href="https://github.com/ronffy/axios-tutorial" target="_blank" rel="noopener">https://github.com/ronffy/axios-tutorial</a></p>
 <p><a href="https://segmentfault.com/a/1190000012836882" target="_blank" rel="noopener">https://segmentfault.com/a/1190000012836882</a></p>
 
