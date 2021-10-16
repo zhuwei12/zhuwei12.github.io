@@ -140,27 +140,27 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-flex布局下宽度设置不成功的思考" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-文字被截断问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/12/flex布局下宽度设置不成功的思考/">flex布局下宽度设置不成功的思考</a>
+      <a class="article-title" href="/2019/12/15/文字被截断问题/">文字被截断问题</a>
     </h1>
   
 
         
-        <a href="/2019/11/12/flex布局下宽度设置不成功的思考/" class="archive-article-date">
-  	<time datetime="2019-11-12T10:10:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-12</time>
+        <a href="/2019/12/15/文字被截断问题/" class="archive-article-date">
+  	<time datetime="2019-12-15T10:52:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>flex下设置的宽度不一定是确定的宽度，设置flex：0 0 10px，可以确定宽度。</p>
+        <p>有时候某些安卓机型会莫名其妙文字被截断一部分，原因是由于设置了安卓机没有的字体，如semibold。且line-height和font-size的比例低于了1.15，这时候就有可能会出现问题。解决方案是设置多一点line-height并保证比例大于1.15或更大一点。一般而言是将line-height设多2像素，然后距离下面的margin值设小1像素即可。</p>
 
       
 
@@ -173,7 +173,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/12/flex布局下宽度设置不成功的思考/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/12/15/文字被截断问题/">展开全文 >></a>
         </p>
       
 
@@ -203,40 +203,35 @@
 
 
   
-    <article id="post-移动端滚动穿透问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Axios源码浅析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/21/移动端滚动穿透问题/">移动端滚动穿透问题</a>
+      <a class="article-title" href="/2019/12/15/Axios源码浅析/">Axios源码浅析</a>
     </h1>
   
 
         
-        <a href="/2019/08/21/移动端滚动穿透问题/" class="archive-article-date">
-  	<time datetime="2019-08-21T04:26:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-21</time>
+        <a href="/2019/12/15/Axios源码浅析/" class="archive-article-date">
+  	<time datetime="2019-12-15T02:17:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>背景是：弹出蒙版弹层（比如下拉筛选框）时，底部的被遮罩盖住的区域依然可以滚动。</p>
-<p>解决方案是使用touchmove事件，在整个上面加preventDefault事件阻止触发，在蒙版上可点击的区域加stopPropagation阻止冒泡。</p>
-<p>还有一个问题是在蒙版上最底部往下滑的时候和最顶部往上滑的时候仍然会触发，解决方案是判断在最底部的时候滑动方向，往下滑就阻止事件，往上放开；同理，最顶部往上禁止，往下放开。就需要判断滑动方向。参考<a href="https://www.haorooms.com/post/webapp_bodyslidebcdiv" target="_blank" rel="noopener">https://www.haorooms.com/post/webapp_bodyslidebcdiv</a></p>
-<p>还有一种思路是背景设置fixed（需注意记录打开时的滚动条位置），例</p>
-<pre><code> this.yHeight = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
-document.body.style.position = &apos;fixed&apos;
-document.body.style.height = &apos;100%&apos;
-document.body.style.width = &apos;100%&apos;
-   // 关闭蒙层之后设置回原样
-document.body.style.position = &apos;&apos;
-document.body.style.height = &apos;&apos;
-document.body.style.width = &apos;&apos;
-window.scrollTo(0, this.yHeight)
-</code></pre>
+        <h3>目录：</h3>
+
+<p>一、axios与其他请求库的区别</p>
+<p>二、axios的实现思路（干货）</p>
+<p>三、你不知道的axios</p>
+<p>四、思路借鉴</p>
+        
+          <a class="article-more-a" href="/2019/12/15/Axios源码浅析/#more">more >></a>
+        
       
 
       
@@ -248,7 +243,7 @@ window.scrollTo(0, this.yHeight)
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/21/移动端滚动穿透问题/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/12/15/Axios源码浅析/">展开全文 >></a>
         </p>
       
 
@@ -278,29 +273,29 @@ window.scrollTo(0, this.yHeight)
 
 
   
-    <article id="post-linux使用crontab创建定时任务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-调起键盘时挡住input框的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/30/linux使用crontab创建定时任务/">linux使用crontab创建定时任务</a>
+      <a class="article-title" href="/2019/12/06/调起键盘时挡住input框的问题/">调起小键盘时挡住input框的问题</a>
     </h1>
   
 
         
-        <a href="/2019/07/30/linux使用crontab创建定时任务/" class="archive-article-date">
-  	<time datetime="2019-07-30T11:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-30</time>
+        <a href="/2019/12/06/调起键盘时挡住input框的问题/" class="archive-article-date">
+  	<time datetime="2019-12-06T09:24:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>crontab -e 创建任务，crontab -l查看任务，crontab -r删除任务</p>
+        <p>有两种，一个是fixed按钮挡住了，一个是小键盘挡住了，解决思路是调起小键盘的时候把页面往上滚动小键盘挡住的高度（或隐藏按钮）。</p>
         
-          <a class="article-more-a" href="/2019/07/30/linux使用crontab创建定时任务/#more">more >></a>
+          <a class="article-more-a" href="/2019/12/06/调起键盘时挡住input框的问题/#more">more >></a>
         
       
 
@@ -309,33 +304,11 @@ window.scrollTo(0, this.yHeight)
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux//" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/30/linux使用crontab创建定时任务/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/12/06/调起键盘时挡住input框的问题/">展开全文 >></a>
         </p>
       
 
@@ -365,59 +338,30 @@ window.scrollTo(0, this.yHeight)
 
 
   
-    <article id="post-用nrm一键切换npm源" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-word-break：break-all" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/11/用nrm一键切换npm源/">用nrm一键切换npm源</a>
+      <a class="article-title" href="/2019/12/04/word-break：break-all/">word-break：break-all</a>
     </h1>
   
 
         
-        <a href="/2019/07/11/用nrm一键切换npm源/" class="archive-article-date">
-  	<time datetime="2019-07-11T03:55:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-11</time>
+        <a href="/2019/12/04/word-break：break-all/" class="archive-article-date">
+  	<time datetime="2019-12-04T03:35:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>当使用官方npm源安装各种包比较慢的时候，建议修改npm源地址</p>
-<p>查看npm源地址，在终端输入以下命令</p>
-<p>npm config list</p>
-<p>会看到官方的npm源</p>
-<p>metrics-registry = “<a href="https://registry.npmjs.org/&quot;" target="_blank" rel="noopener">https://registry.npmjs.org/&quot;</a></p>
-<p>国内常用的镜像地址如淘宝npm：<a href="https://registry.npm.taobao.org/" target="_blank" rel="noopener">https://registry.npm.taobao.org/</a></p>
-<p>修改registry地址很简单，在终端输入</p>
-<p>npm set registry <a href="https://registry.npm.taobao.org/" target="_blank" rel="noopener">https://registry.npm.taobao.org/</a></p>
-<p>如果有一天你肉身FQ到国外，用不上了，用rm命令删掉它</p>
-<p>npm config rm registry</p>
-<p>如果某一天你又被遣送回国了，还是得加上它……</p>
-<p>有些大公司还需要在公司的私有npm源和外部npm源之间来回切换，这样set来rm去不是办法，于是有了nrm</p>
-<p>nrm是专门用来管理和快速切换私人配置的registry</p>
-<p>建议全局安装</p>
-<p>npm install nrm -g –save</p>
-<p>nrm有一些默认配置，用nrm ls命令查看默认配置，带*号即为当前使用的配置</p>
-<p>nrm ls</p>
-<p>也可以直接输入以下命令查看当前使用的是哪个源</p>
-<p>nrm current</p>
-<p>切到源<a href="http://r.cnpmjs.org/，命令：nrm" target="_blank" rel="noopener">http://r.cnpmjs.org/，命令：nrm</a> use 源的别名，即</p>
-<p>nrm use cnpm</p>
-<p>执行成功提示</p>
-<p>Registry has been set to: <a href="http://r.cnpmjs.org/" target="_blank" rel="noopener">http://r.cnpmjs.org/</a><br>用nrm add 命令添加公司私有npm源，如<a href="http://registry.npm.360.org(随便写的)，起个别名叫qihoo" target="_blank" rel="noopener">http://registry.npm.360.org(随便写的)，起个别名叫qihoo</a></p>
-<p>nrm add qihoo <a href="http://registry.npm.360.org" target="_blank" rel="noopener">http://registry.npm.360.org</a></p>
-<p>接着查看nrm配置，发现最底部qihoo添加成功</p>
-<p>添加完了可以顺便测试下速度（只能测试已添加的源的别名，直接测试源URL是没有前途的），因为我随便写的地址，就测试一下官方的好了</p>
-<p>nrm test npm</p>
-<p>输出：</p>
-<p>npm —- 1547ms</p>
-<p>是挺慢的。</p>
-<p>最后，如果你被公司开除了，怒删公司npm源配置</p>
-<p>nrm del qihoo</p>
-
+        <p>word-break:break-all和word-wrap:break-word的区别。两者其实都是为了保证文字输入可以换行，不至于一直单行显示，区别在于break-all可以汉字英文数字都可以准确换行，break-word只能汉字到底换行，遇到英文数字就会自动换一行。如图</p>
+        
+          <a class="article-more-a" href="/2019/12/04/word-break：break-all/#more">more >></a>
+        
       
 
       
@@ -429,7 +373,7 @@ window.scrollTo(0, this.yHeight)
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/11/用nrm一键切换npm源/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/12/04/word-break：break-all/">展开全文 >></a>
         </p>
       
 
@@ -459,31 +403,29 @@ window.scrollTo(0, this.yHeight)
 
 
   
-    <article id="post-图片懒加载的实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-关于infinite-scroll" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/14/图片懒加载的实现/">图片懒加载的实现</a>
+      <a class="article-title" href="/2019/12/03/关于infinite-scroll/">关于infinite-scroll</a>
     </h1>
   
 
         
-        <a href="/2019/01/14/图片懒加载的实现/" class="archive-article-date">
-  	<time datetime="2019-01-14T13:03:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-14</time>
+        <a href="/2019/12/03/关于infinite-scroll/" class="archive-article-date">
+  	<time datetime="2019-12-03T04:05:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>参考掘金 <a href="https://juejin.im/entry/594a483061ff4b006c12cea1" target="_blank" rel="noopener">https://juejin.im/entry/594a483061ff4b006c12cea1</a></p>
-<p>实际实现的时候遇到过一个问题，就是el.getBoundingClientRect()如果el是取的img标签，这个值会以原像素的值乘以dpr，如果改，适配会有问题，所以最好是不要用img，用它的上层a标签或之类的。</p>
-<p>还有最好使用节流函数替代防抖</p>
+        <p>关于无限加载滚动，之前一直没有特别深入了解。特别是busy，busy为true的时候是不加载，busy为false的时候才加载。看下代码</p>
         
-          <a class="article-more-a" href="/2019/01/14/图片懒加载的实现/#more">more >></a>
+          <a class="article-more-a" href="/2019/12/03/关于infinite-scroll/#more">more >></a>
         
       
 
@@ -492,33 +434,11 @@ window.scrollTo(0, this.yHeight)
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">懒加载</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端//" class="article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/14/图片懒加载的实现/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/12/03/关于infinite-scroll/">展开全文 >></a>
         </p>
       
 
@@ -548,29 +468,29 @@ window.scrollTo(0, this.yHeight)
 
 
   
-    <article id="post-forEach和map的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-axios取消请求" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/14/forEach和map的区别/">forEach和map的区别</a>
+      <a class="article-title" href="/2019/12/03/axios取消请求/">axios取消请求</a>
     </h1>
   
 
         
-        <a href="/2019/01/14/forEach和map的区别/" class="archive-article-date">
-  	<time datetime="2019-01-14T06:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-14</time>
+        <a href="/2019/12/03/axios取消请求/" class="archive-article-date">
+  	<time datetime="2019-12-03T02:59:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>到底有什么区别呢？forEach()方法不会返回执行结果，而是undefined。也就是说，forEach()会修改原来的数组。而map()方法会得到一个新的数组并返回。</p>
+        <p>在做tab切换时，有时候请求还没回来但是tab页已经切了，这个时候返回的数据就会被加到不该在的tab，解决方案是点击tab的时候取消上一个请求，axios中可以做到这一点。</p>
         
-          <a class="article-more-a" href="/2019/01/14/forEach和map的区别/#more">more >></a>
+          <a class="article-more-a" href="/2019/12/03/axios取消请求/#more">more >></a>
         
       
 
@@ -579,33 +499,11 @@ window.scrollTo(0, this.yHeight)
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">语法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端//" class="article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/14/forEach和map的区别/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/12/03/axios取消请求/">展开全文 >></a>
         </p>
       
 
@@ -635,31 +533,30 @@ window.scrollTo(0, this.yHeight)
 
 
   
-    <article id="post-React-重新render的条件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-关于reduce" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/14/React-重新render的条件/">React--重新render的条件</a>
+      <a class="article-title" href="/2019/11/28/关于reduce/">关于reduce</a>
     </h1>
   
 
         
-        <a href="/2019/01/14/React-重新render的条件/" class="archive-article-date">
-  	<time datetime="2019-01-14T03:58:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-14</time>
+        <a href="/2019/11/28/关于reduce/" class="archive-article-date">
+  	<time datetime="2019-11-28T12:15:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.props</p>
-<p>2.首次加载</p>
-<p>3.state改变</p>
-<p>有时候我们需要强制渲染，使用this.forceUpdate()方法即可</p>
-
+        <p>对于reduce，之前一直没怎么使用过，但是今天在做拼接字符的时候突然想到可以用这个方法。</p>
+        
+          <a class="article-more-a" href="/2019/11/28/关于reduce/#more">more >></a>
+        
       
 
       
@@ -667,33 +564,11 @@ window.scrollTo(0, this.yHeight)
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端//" class="article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/14/React-重新render的条件/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/11/28/关于reduce/">展开全文 >></a>
         </p>
       
 
@@ -723,30 +598,28 @@ window.scrollTo(0, this.yHeight)
 
 
   
-    <article id="post-ES6之findIndex" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-背景色透明的同时内部文字不透明" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/12/ES6之findIndex/">ES6之findIndex</a>
+      <a class="article-title" href="/2019/11/25/背景色透明的同时内部文字不透明/">背景色透明的同时内部文字不透明</a>
     </h1>
   
 
         
-        <a href="/2019/01/12/ES6之findIndex/" class="archive-article-date">
-  	<time datetime="2019-01-12T11:17:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-12</time>
+        <a href="/2019/11/25/背景色透明的同时内部文字不透明/" class="archive-article-date">
+  	<time datetime="2019-11-25T08:31:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>项目中遇到一个问题，需要找一个对象在一个数组中的位置，因为对象是堆存储，所以不能简单的使用indexOf，这时候find或findIndex就有了作用。</p>
-        
-          <a class="article-more-a" href="/2019/01/12/ES6之findIndex/#more">more >></a>
-        
+        <p>使用background-color:rgba(9,132,249,0.15);</p>
+
       
 
       
@@ -758,7 +631,7 @@ window.scrollTo(0, this.yHeight)
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/12/ES6之findIndex/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/11/25/背景色透明的同时内部文字不透明/">展开全文 >></a>
         </p>
       
 
@@ -788,27 +661,27 @@ window.scrollTo(0, this.yHeight)
 
 
   
-    <article id="post-如何使用pm2后台启动npm-start" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-文字的垂直居中" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/11/如何使用pm2后台启动npm-start/">如何使用pm2后台启动npm start</a>
+      <a class="article-title" href="/2019/11/25/文字的垂直居中/">文字的垂直居中</a>
     </h1>
   
 
         
-        <a href="/2019/01/11/如何使用pm2后台启动npm-start/" class="archive-article-date">
-  	<time datetime="2019-01-11T03:49:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-11</time>
+        <a href="/2019/11/25/文字的垂直居中/" class="archive-article-date">
+  	<time datetime="2019-11-25T07:03:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>命令为 pm2 start npm – start</p>
+        <p>设置line-height和font-size一样即可</p>
 
       
 
@@ -821,7 +694,7 @@ window.scrollTo(0, this.yHeight)
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/11/如何使用pm2后台启动npm-start/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/11/25/文字的垂直居中/">展开全文 >></a>
         </p>
       
 
@@ -851,30 +724,28 @@ window.scrollTo(0, this.yHeight)
 
 
   
-    <article id="post-react如何引入本地图片" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-写样式时出现的莫名空隙问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/09/react如何引入本地图片/">react如何引入本地图片</a>
+      <a class="article-title" href="/2019/11/22/写样式时出现的莫名空隙问题/">写样式时出现的莫名空隙问题</a>
     </h1>
   
 
         
-        <a href="/2019/01/09/react如何引入本地图片/" class="archive-article-date">
-  	<time datetime="2019-01-09T03:11:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-09</time>
+        <a href="/2019/11/22/写样式时出现的莫名空隙问题/" class="archive-article-date">
+  	<time datetime="2019-11-22T06:57:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>不能简单的在src里使用路径，需要require或import图片。</p>
-        
-          <a class="article-more-a" href="/2019/01/09/react如何引入本地图片/#more">more >></a>
-        
+        <p>在img和div之间出现了一段空白，可能是inline-block所导致的，解决方法是外层包裹住的div设置font-size：0</p>
+
       
 
       
@@ -882,33 +753,11 @@ window.scrollTo(0, this.yHeight)
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端//" class="article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/09/react如何引入本地图片/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/11/22/写样式时出现的莫名空隙问题/">展开全文 >></a>
         </p>
       
 
@@ -940,7 +789,7 @@ window.scrollTo(0, this.yHeight)
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -952,7 +801,7 @@ window.scrollTo(0, this.yHeight)
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 Zhu Wei
+    		&copy; 2021 Zhu Wei
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1043,15 +892,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">study</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color1">study</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1059,7 +904,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">antd-pro</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1067,15 +912,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">element</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">project</a>
+                <a href="javascript:void(0)" class="js-tag color4">antd-pro</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1083,7 +920,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">html css</a>
+                <a href="javascript:void(0)" class="js-tag color3">element</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">project</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1091,11 +936,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color4">html css</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1103,11 +948,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">mongovue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">mongovue</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">运维</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1119,7 +968,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">运维</a>
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1127,11 +976,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">rap</a>
+                <a href="javascript:void(0)" class="js-tag color3">react项目</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1139,7 +988,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">react项目</a>
+                <a href="javascript:void(0)" class="js-tag color4">rap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1159,10 +1008,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">懒加载</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
@@ -1171,7 +1016,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color4">懒加载</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1179,11 +1024,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">缓存</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">

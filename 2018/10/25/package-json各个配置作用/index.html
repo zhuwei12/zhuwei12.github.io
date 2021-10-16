@@ -17,7 +17,7 @@
 <meta property="og:description" content="https://blog.csdn.net/u011240877/article/details/76582670 这篇写的比较详细，还有版本的问题如下">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://zhuwei12.github.io/img/git.png">
-<meta property="og:updated_time" content="2019-12-05T09:28:36.303Z">
+<meta property="og:updated_time" content="2020-05-27T03:04:08.492Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于package.json与package-lock.json">
 <meta name="twitter:description" content="https://blog.csdn.net/u011240877/article/details/76582670 这篇写的比较详细，还有版本的问题如下">
@@ -166,6 +166,52 @@
 <p><img src="/img/git.png" alt=""></p>
 <p>然后关于这两个文件，如果没有packag-lock.json，执行npm i的时候会自动生成这个文件，所有依赖包为当前package.json里所允许的最新版本。</p>
 <p>当有lock.json文件的时候，再npm i，只会装lock.json里所规定的锁定版本，但依赖包的依赖包依然会自动更新，即会更新lock.json文件，但大版本是不会变的。</p>
+<p>例子及字段解释</p>
+<pre><code>&quot;@hui-pro/empty&quot;: {
+      &quot;version&quot;: &quot;1.1.0&quot;,
+      &quot;resolved&quot;: &quot;http://...&quot;,
+      &quot;integrity&quot;: &quot;sha1-D2egR6O4AeJh31PAr0KIyJJsciQ=&quot;,
+      &quot;requires&quot;: {
+        &quot;@hui-pro/locale&quot;: &quot;^1.1.0&quot;,
+        &quot;@hui-pro/theme&quot;: &quot;^1.1.0&quot;,
+        &quot;@hui-pro/utils&quot;: &quot;^1.1.0&quot;
+      },
+      &quot;dependencies&quot;: {
+        &quot;@hui-pro/locale&quot;: {
+          &quot;version&quot;: &quot;1.1.0&quot;,
+          &quot;resolved&quot;: &quot;http://...&quot;,
+          &quot;integrity&quot;: &quot;sha1-ZzHcgwh/q5CqslQadrXzhzQc7vQ=&quot;,
+          &quot;requires&quot;: {
+            &quot;deepmerge&quot;: &quot;^1.5.2&quot;
+          }
+        },
+        &quot;@hui-pro/theme&quot;: {
+          &quot;version&quot;: &quot;1.1.0&quot;,
+          &quot;resolved&quot;: &quot;http://...&quot;,
+          &quot;integrity&quot;: &quot;sha1-+buQbn8OnWU32dIdNg6v9g6cUrU=&quot;,
+          &quot;requires&quot;: {
+            &quot;sass&quot;: &quot;^1.19.0&quot;,
+            &quot;sass-loader&quot;: &quot;^7.1.0&quot;
+          }
+        },
+        &quot;@hui-pro/utils&quot;: {
+          &quot;version&quot;: &quot;1.1.0&quot;,
+          &quot;resolved&quot;: &quot;http://...&quot;,
+          &quot;integrity&quot;: &quot;sha1-V862xMe+H5G751C3CpT3bGIFr1k=&quot;,
+          &quot;requires&quot;: {
+            &quot;h-jsencrypt&quot;: &quot;^1.0.1&quot;,
+            &quot;moment&quot;: &quot;^2.24.0&quot;,
+            &quot;qs&quot;: &quot;^6.5.2&quot;,
+            &quot;resize-observer-polyfill&quot;: &quot;^1.5.1&quot;
+          }
+        }
+      }
+    }
+</code></pre><p>version：应安装的特定版本；</p>
+<p>resolved：模块的位置（URI）；</p>
+<p>integrity：验证模块完整性的哈希；</p>
+<p>requires：它依赖的包列表；</p>
+<p>dependencies：依赖包详情列表；</p>
 
       
 
@@ -340,7 +386,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 Zhu Wei
+    		&copy; 2021 Zhu Wei
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -431,15 +477,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">study</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color1">study</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -447,7 +489,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">antd-pro</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -455,15 +497,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">element</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">project</a>
+                <a href="javascript:void(0)" class="js-tag color4">antd-pro</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -471,7 +505,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">html css</a>
+                <a href="javascript:void(0)" class="js-tag color3">element</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">project</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -479,11 +521,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color4">html css</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -491,11 +533,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">mongovue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">mongovue</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">运维</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -507,7 +553,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">运维</a>
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -515,11 +561,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">rap</a>
+                <a href="javascript:void(0)" class="js-tag color3">react项目</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -527,7 +573,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">react项目</a>
+                <a href="javascript:void(0)" class="js-tag color4">rap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -547,10 +593,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">懒加载</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
@@ -559,7 +601,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color4">懒加载</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -567,11 +609,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">缓存</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">

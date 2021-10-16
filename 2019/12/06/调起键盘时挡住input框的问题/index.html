@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zhuwei12.github.io">
-  <title>调起键盘时挡住input框的问题 | 朱蔚的博客</title>
+  <title>调起小键盘时挡住input框的问题 | 朱蔚的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="解决思路是调起小键盘的时候把页面忘上滚动小键盘挡住的高度。">
+  <meta name="description" content="有两种，一个是fixed按钮挡住了，一个是小键盘挡住了，解决思路是调起小键盘的时候把页面往上滚动小键盘挡住的高度（或隐藏按钮）。">
 <meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
 <meta property="og:type" content="article">
-<meta property="og:title" content="调起键盘时挡住input框的问题">
+<meta property="og:title" content="调起小键盘时挡住input框的问题">
 <meta property="og:url" content="http://zhuwei12.github.io/2019/12/06/调起键盘时挡住input框的问题/index.html">
 <meta property="og:site_name" content="朱蔚的博客">
-<meta property="og:description" content="解决思路是调起小键盘的时候把页面忘上滚动小键盘挡住的高度。">
+<meta property="og:description" content="有两种，一个是fixed按钮挡住了，一个是小键盘挡住了，解决思路是调起小键盘的时候把页面往上滚动小键盘挡住的高度（或隐藏按钮）。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-12-06T09:26:41.785Z">
+<meta property="og:updated_time" content="2020-06-23T12:36:54.069Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="调起键盘时挡住input框的问题">
-<meta name="twitter:description" content="解决思路是调起小键盘的时候把页面忘上滚动小键盘挡住的高度。">
+<meta name="twitter:title" content="调起小键盘时挡住input框的问题">
+<meta name="twitter:description" content="有两种，一个是fixed按钮挡住了，一个是小键盘挡住了，解决思路是调起小键盘的时候把页面往上滚动小键盘挡住的高度（或隐藏按钮）。">
   
     <link rel="alternative" href="/atom.xml" title="朱蔚的博客" type="application/atom+xml">
   
@@ -146,7 +146,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      调起键盘时挡住input框的问题
+      调起小键盘时挡住input框的问题
     </h1>
   
 
@@ -159,11 +159,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>解决思路是调起小键盘的时候把页面忘上滚动小键盘挡住的高度。</p>
+        <p>有两种，一个是fixed按钮挡住了，一个是小键盘挡住了，解决思路是调起小键盘的时候把页面往上滚动小键盘挡住的高度（或隐藏按钮）。</p>
 <a id="more"></a>
-<p>fullHeight: document.documentElement.clientHeight,<br>allHeight: document.documentElement.clientHeight,</p>
-<p>window.onresize = () =&gt; (() =&gt; {<br>      window.fullHeight = document.documentElement.clientHeight<br>      this.fullHeight = window.fullHeight<br>      // &lt; 说明安卓软键盘弹起来了<br>      if (this.fullHeight &lt; this.allHeight) {<br>        document.getElementById(‘apply’).scrollTop = document.getElementById(‘apply’).scrollHeight<br>      }<br>    })()</p>
-
+<pre><code>// 安卓小键盘弹起导致fixed底部按钮挡住输入框问题
+const winHeight = document.documentElement.clientHeight || document.body.clientHeight
+window.onresize = () =&gt; {
+  const newHeight = document.documentElement.clientHeight || document.body.clientHeight
+  if (winHeight &gt; newHeight) {
+      document.getElementById(&apos;apply&apos;).scrollTop = document.getElementById(&apos;apply&apos;).scrollHeight
+    // 或者
+    document.getElementById(&apos;apply&apos;).scrollIntoView({ behavior: &apos;smooth&apos;, block: &apos;start&apos;, inline: &apos;center&apos; })
+    // this.showBtn = false
+  } else {
+    // this.showBtn = true
+  }
+}
+</code></pre>
       
 
       
@@ -315,7 +326,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 Zhu Wei
+    		&copy; 2021 Zhu Wei
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -406,15 +417,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">study</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color1">study</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -422,7 +429,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">antd-pro</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -430,15 +437,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">element</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">project</a>
+                <a href="javascript:void(0)" class="js-tag color4">antd-pro</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -446,7 +445,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">html css</a>
+                <a href="javascript:void(0)" class="js-tag color3">element</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">project</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -454,11 +461,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color4">html css</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -466,11 +473,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">mongovue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">mongovue</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">运维</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -482,7 +493,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">运维</a>
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -490,11 +501,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">rap</a>
+                <a href="javascript:void(0)" class="js-tag color3">react项目</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -502,7 +513,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">react项目</a>
+                <a href="javascript:void(0)" class="js-tag color4">rap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -522,10 +533,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">懒加载</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
@@ -534,7 +541,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color4">懒加载</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -542,11 +549,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">缓存</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">

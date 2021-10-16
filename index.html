@@ -140,27 +140,27 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-文字被截断问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-禁止点击图片" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/15/文字被截断问题/">文字被截断问题</a>
+      <a class="article-title" href="/2020/07/20/禁止点击图片/">禁止点击图片</a>
     </h1>
   
 
         
-        <a href="/2019/12/15/文字被截断问题/" class="archive-article-date">
-  	<time datetime="2019-12-15T10:52:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-15</time>
+        <a href="/2020/07/20/禁止点击图片/" class="archive-article-date">
+  	<time datetime="2020-07-20T04:24:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>有时候某些安卓机型会莫名其妙文字被截断一部分，原因是由于设置了安卓机没有的字体，如semibold。且line-height和font-size的比例低于了1.15，这时候就有可能会出现问题。解决方案是设置多一点line-height并保证比例大于1.15或更大一点。</p>
+        <p> img{ pointer-events: none; }</p>
 
       
 
@@ -173,7 +173,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/15/文字被截断问题/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/07/20/禁止点击图片/">展开全文 >></a>
         </p>
       
 
@@ -203,35 +203,28 @@
 
 
   
-    <article id="post-Axios源码浅析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-后端数据返回换行符未展示的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/15/Axios源码浅析/">Axios源码浅析</a>
+      <a class="article-title" href="/2020/05/25/后端数据返回换行符未展示的问题/">后端数据返回换行符未展示的问题</a>
     </h1>
   
 
         
-        <a href="/2019/12/15/Axios源码浅析/" class="archive-article-date">
-  	<time datetime="2019-12-15T02:17:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-15</time>
+        <a href="/2020/05/25/后端数据返回换行符未展示的问题/" class="archive-article-date">
+  	<time datetime="2020-05-25T10:14:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3>目录：</h3>
+        <p>设置css：white-space: pre-wrap;即可</p>
 
-<p>一、axios与其他请求库的区别</p>
-<p>二、axios的实现思路（干货）</p>
-<p>三、你不知道的axios</p>
-<p>四、思路借鉴</p>
-        
-          <a class="article-more-a" href="/2019/12/15/Axios源码浅析/#more">more >></a>
-        
       
 
       
@@ -243,7 +236,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/15/Axios源码浅析/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/05/25/后端数据返回换行符未展示的问题/">展开全文 >></a>
         </p>
       
 
@@ -273,30 +266,31 @@
 
 
   
-    <article id="post-调起键盘时挡住input框的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-npm-link本地包" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/06/调起键盘时挡住input框的问题/">调起键盘时挡住input框的问题</a>
+      <a class="article-title" href="/2020/05/14/npm-link本地包/">npm link本地包</a>
     </h1>
   
 
         
-        <a href="/2019/12/06/调起键盘时挡住input框的问题/" class="archive-article-date">
-  	<time datetime="2019-12-06T09:24:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-06</time>
+        <a href="/2020/05/14/npm-link本地包/" class="archive-article-date">
+  	<time datetime="2020-05-14T12:40:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>解决思路是调起小键盘的时候把页面忘上滚动小键盘挡住的高度。</p>
-        
-          <a class="article-more-a" href="/2019/12/06/调起键盘时挡住input框的问题/#more">more >></a>
-        
+        <p>项目中使用的一个包，本地在那个包里进行开发，想使用本地包看效果的时候</p>
+<p>先在本地包npm link 将这个包链接到全局</p>
+<p>再在项目中npm link @包名称 链接到全局的那个包</p>
+<p>这样就可以三重映射到本地包了</p>
+
       
 
       
@@ -308,7 +302,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/06/调起键盘时挡住input框的问题/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/05/14/npm-link本地包/">展开全文 >></a>
         </p>
       
 
@@ -338,30 +332,31 @@
 
 
   
-    <article id="post-word-break：break-all" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-针对iphonex底部横条的样式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/04/word-break：break-all/">word-break：break-all</a>
+      <a class="article-title" href="/2020/04/17/针对iphonex底部横条的样式/">针对iphonex底部横条的样式</a>
     </h1>
   
 
         
-        <a href="/2019/12/04/word-break：break-all/" class="archive-article-date">
-  	<time datetime="2019-12-04T03:35:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-04</time>
+        <a href="/2020/04/17/针对iphonex底部横条的样式/" class="archive-article-date">
+  	<time datetime="2020-04-17T11:11:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>word-break:break-all和word-wrap:break-word的区别。两者其实都是为了保证文字输入可以换行，不至于一直单行显示，区别在于break-all可以汉字英文数字都可以准确换行，break-word只能汉字到底换行，遇到英文数字就会自动换一行。如图</p>
-        
-          <a class="article-more-a" href="/2019/12/04/word-break：break-all/#more">more >></a>
-        
+        <pre><code>// 必须 ios &lt; 11.2 支持
+padding-bottom: calc(~&quot;14px + constant(safe-area-inset-bottom)&quot;); 
+// 必须在 ios &gt;= 11.2 才支持  
+padding-bottom: calc(~&quot;14px + env(safe-area-inset-bottom)&quot;); 
+</code></pre>
       
 
       
@@ -373,7 +368,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/04/word-break：break-all/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/04/17/针对iphonex底部横条的样式/">展开全文 >></a>
         </p>
       
 
@@ -403,30 +398,28 @@
 
 
   
-    <article id="post-关于infinite-scroll" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-设置relative之后内部的层级降低导致无法点击" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/03/关于infinite-scroll/">关于infinite-scroll</a>
+      <a class="article-title" href="/2020/02/20/设置relative之后内部的层级降低导致无法点击/">设置relative之后内部的层级降低导致无法点击</a>
     </h1>
   
 
         
-        <a href="/2019/12/03/关于infinite-scroll/" class="archive-article-date">
-  	<time datetime="2019-12-03T04:05:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-03</time>
+        <a href="/2020/02/20/设置relative之后内部的层级降低导致无法点击/" class="archive-article-date">
+  	<time datetime="2020-02-20T14:42:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>关于无限加载滚动，之前一直没有特别深入了解。特别是busy，busy为true的时候是不加载，busy为false的时候才加载。看下代码</p>
-        
-          <a class="article-more-a" href="/2019/12/03/关于infinite-scroll/#more">more >></a>
-        
+        <p>解决方案就是将想要点击的部分加z-index高过上一层，一般来说1就可以，这里要注意的是页面上有没有弹窗、浮层之类的z-index，要让它们的z-index更大一级。</p>
+
       
 
       
@@ -438,7 +431,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/03/关于infinite-scroll/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/02/20/设置relative之后内部的层级降低导致无法点击/">展开全文 >></a>
         </p>
       
 
@@ -468,30 +461,31 @@
 
 
   
-    <article id="post-axios取消请求" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-使input输入仅整数数字" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/03/axios取消请求/">axios取消请求</a>
+      <a class="article-title" href="/2020/02/19/使input输入仅整数数字/">使input输入仅整数数字</a>
     </h1>
   
 
         
-        <a href="/2019/12/03/axios取消请求/" class="archive-article-date">
-  	<time datetime="2019-12-03T02:59:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-03</time>
+        <a href="/2020/02/19/使input输入仅整数数字/" class="archive-article-date">
+  	<time datetime="2020-02-19T07:46:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在做tab切换时，有时候请求还没回来但是tab页已经切了，这个时候返回的数据就会被加到不该在的tab，解决方案是点击tab的时候取消上一个请求，axios中可以做到这一点。</p>
-        
-          <a class="article-more-a" href="/2019/12/03/axios取消请求/#more">more >></a>
-        
+        <p>主要是在oninput里写个正则即可，但是注意，不要和type=number混用哦。type=number的话是数字，小数什么的都可以。</p>
+<pre><code>&lt;input autofocus=&quot;autofocus&quot; class=&quot;simple-input&quot; v-model=&quot;simpleInput&quot; oninput = &quot;value=value.replace(/[^\d]/g,&apos;&apos;)&quot; placeholder=&quot;请输入验证码&quot;&gt;
+</code></pre><p>oninput里也可以多个正则或条件，分号相隔就可以，例：</p>
+<pre><code>if(value&gt;5000)value=5000;value=value.replace(/^(0+)|[^\\d]+/g,&apos;&apos;)
+</code></pre>
       
 
       
@@ -503,7 +497,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/03/axios取消请求/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/02/19/使input输入仅整数数字/">展开全文 >></a>
         </p>
       
 
@@ -533,29 +527,30 @@
 
 
   
-    <article id="post-关于reduce" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-验证码样式实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/28/关于reduce/">关于reduce</a>
+      <a class="article-title" href="/2020/02/19/验证码样式实现/">验证码样式实现</a>
     </h1>
   
 
         
-        <a href="/2019/11/28/关于reduce/" class="archive-article-date">
-  	<time datetime="2019-11-28T12:15:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-28</time>
+        <a href="/2020/02/19/验证码样式实现/" class="archive-article-date">
+  	<time datetime="2020-02-19T07:19:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>对于reduce，之前一直没怎么使用过，但是今天在做拼接字符的时候突然想到可以用这个方法。</p>
+        <p>如何实现一个比较高大上的输入验证码的样式呢？类似下图这种</p>
+<p><img src="/img/messageVerify.png" alt=""></p>
         
-          <a class="article-more-a" href="/2019/11/28/关于reduce/#more">more >></a>
+          <a class="article-more-a" href="/2020/02/19/验证码样式实现/#more">more >></a>
         
       
 
@@ -568,7 +563,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/28/关于reduce/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/02/19/验证码样式实现/">展开全文 >></a>
         </p>
       
 
@@ -598,28 +593,30 @@
 
 
   
-    <article id="post-背景色透明的同时内部文字不透明" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-关于pdf在页面上的展示" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/25/背景色透明的同时内部文字不透明/">背景色透明的同时内部文字不透明</a>
+      <a class="article-title" href="/2020/02/19/关于pdf在页面上的展示/">关于pdf在页面上的展示</a>
     </h1>
   
 
         
-        <a href="/2019/11/25/背景色透明的同时内部文字不透明/" class="archive-article-date">
-  	<time datetime="2019-11-25T08:31:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-25</time>
+        <a href="/2020/02/19/关于pdf在页面上的展示/" class="archive-article-date">
+  	<time datetime="2020-02-19T04:52:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>使用background-color:rgba(9,132,249,0.15);</p>
-
+        <p>pdf展示有几张方式，一个是套iframe，一个就是用pdf.js。但是要注意的是pdf.js不能使用电子签章，如果需要使用电子签章的话需要注释原js里的几段代码，我这边直接使用了公司内部的<a href="https://www.npmjs.com/package/pdfjs-dist-with-digtal-signature-ke" target="_blank" rel="noopener">https://www.npmjs.com/package/pdfjs-dist-with-digtal-signature-ke</a></p>
+        
+          <a class="article-more-a" href="/2020/02/19/关于pdf在页面上的展示/#more">more >></a>
+        
       
 
       
@@ -631,7 +628,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/25/背景色透明的同时内部文字不透明/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/02/19/关于pdf在页面上的展示/">展开全文 >></a>
         </p>
       
 
@@ -661,28 +658,30 @@
 
 
   
-    <article id="post-文字的垂直居中" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-input设置最大长度" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/25/文字的垂直居中/">文字的垂直居中</a>
+      <a class="article-title" href="/2020/02/12/input设置最大长度/">input设置最大长度</a>
     </h1>
   
 
         
-        <a href="/2019/11/25/文字的垂直居中/" class="archive-article-date">
-  	<time datetime="2019-11-25T07:03:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-25</time>
+        <a href="/2020/02/12/input设置最大长度/" class="archive-article-date">
+  	<time datetime="2020-02-12T05:56:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>设置line-height和font-size一样即可</p>
-
+        <p>正常来说input设置最大长度设置maxlength就行，但是number和text会有问题，需要这样写。</p>
+        
+          <a class="article-more-a" href="/2020/02/12/input设置最大长度/#more">more >></a>
+        
       
 
       
@@ -694,7 +693,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/25/文字的垂直居中/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/02/12/input设置最大长度/">展开全文 >></a>
         </p>
       
 
@@ -724,27 +723,28 @@
 
 
   
-    <article id="post-写样式时出现的莫名空隙问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Charles代理本地页面图片加载不出的原因" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/22/写样式时出现的莫名空隙问题/">写样式时出现的莫名空隙问题</a>
+      <a class="article-title" href="/2019/12/27/Charles代理本地页面图片加载不出的原因/">Charles代理本地页面图片加载不出的原因</a>
     </h1>
   
 
         
-        <a href="/2019/11/22/写样式时出现的莫名空隙问题/" class="archive-article-date">
-  	<time datetime="2019-11-22T06:57:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
+        <a href="/2019/12/27/Charles代理本地页面图片加载不出的原因/" class="archive-article-date">
+  	<time datetime="2019-12-27T08:12:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在img和div之间出现了一段空白，可能是inline-block所导致的，解决方法是外层包裹住的div设置font-size：0</p>
+        <p>原因是由于图片是https的，需要安装安全证书，先连上本机代理，然后手机进入chls.pro/ssl安装并信任证书即可。</p>
+<p>如果双方都是连接的同一个局域网，直接ip+本地项目就可以进行访问。</p>
 
       
 
@@ -757,7 +757,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/22/写样式时出现的莫名空隙问题/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/12/27/Charles代理本地页面图片加载不出的原因/">展开全文 >></a>
         </p>
       
 
@@ -789,7 +789,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -801,7 +801,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 Zhu Wei
+    		&copy; 2021 Zhu Wei
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -892,15 +892,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">study</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color1">study</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -908,7 +904,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">antd-pro</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -916,15 +912,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">element</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">project</a>
+                <a href="javascript:void(0)" class="js-tag color4">antd-pro</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -932,7 +920,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">html css</a>
+                <a href="javascript:void(0)" class="js-tag color3">element</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">project</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -940,11 +936,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color4">html css</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -952,11 +948,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">mongovue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">mongovue</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">运维</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -968,7 +968,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">运维</a>
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -976,11 +976,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">rap</a>
+                <a href="javascript:void(0)" class="js-tag color3">react项目</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -988,7 +988,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">react项目</a>
+                <a href="javascript:void(0)" class="js-tag color4">rap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1008,10 +1008,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">懒加载</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
@@ -1020,7 +1016,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color4">懒加载</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1028,11 +1024,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">缓存</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
